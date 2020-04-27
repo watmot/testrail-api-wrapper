@@ -1,6 +1,6 @@
 from schema import Schema, Or
 
-from testrail.models.base import BaseModel
+from testrail.models.base import PostModel
 
 from testrail.models.mixins.fields.completed_on import CompletedOnMixin
 from testrail.models.mixins.fields.description import DescriptionMixin
@@ -23,7 +23,7 @@ from testrail.models.mixins.methods.delete import DeleteMixin
 
 class MilestoneModel(CompletedOnMixin, DescriptionMixin, DueOnMixin, IdMixin, IsCompletedMixin,  IsStartedMixin,
                      NameMixin, ParentIdMixin, ProjectIdMixin, StartOnMixin, StartedOnMixin, UrlMixin, DeleteMixin,
-                     UpdateMixin, AddMixin, GetMixin, BaseModel):
+                     UpdateMixin, AddMixin, GetMixin, PostModel):
 
     ENDPOINTS = {
         'get': 'get_milestone/{milestone_id}',
@@ -49,9 +49,9 @@ class MilestoneModel(CompletedOnMixin, DescriptionMixin, DueOnMixin, IdMixin, Is
     }
 
     SCHEMA = Schema({
-        'completed_on': Or(str, None),
+        'completed_on': Or(int, None),
         'description': str,
-        'due_on': Or(str, None),
+        'due_on': Or(int, None),
         'id': int,
         'is_completed': bool,
         'is_started': bool,
@@ -59,22 +59,26 @@ class MilestoneModel(CompletedOnMixin, DescriptionMixin, DueOnMixin, IdMixin, Is
         'name': str,
         'parent_id': Or(int, None),
         'project_id': int,
-        'start_on': str,
-        'started_on': Or(str, None),
+        'start_on': int,
+        'started_on': Or(int, None),
         'url': str
     })
 
     def get(self, milestone_id):
         response = self._get(milestone_id=milestone_id)
         self._update_data(response)
+        return response
 
     def add(self, project_id):
         response = self._add(project_id=project_id)
         self._update_data(response)
+        return response
 
     def update(self):
         response = self._update(milestone_id=self.id)
         self._update_data(response)
+        return response
 
     def delete(self):
-        self._delete(milestone_id=self.id)
+        response = self._delete(milestone_id=self.id)
+        return response

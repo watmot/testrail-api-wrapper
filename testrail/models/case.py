@@ -1,4 +1,4 @@
-from schema import Schema, Or
+from schema import Schema, Optional, Or
 
 from testrail.models.base import PostModel
 
@@ -60,6 +60,11 @@ class CaseModel(CreatedByMixin, CreatedOnMixin, EstimateMixin, EstimateForecastM
     SCHEMA = Schema({
         'created_by': int,
         'created_on': int,
+        'custom_description': Or(str, None),
+        'custom_precondition': Or(str, None),
+        'custom_steps': Or(str, None),
+        Optional('custom_steps_separated', default=[]): list,
+        'display_order': int,
         'estimate': Or(str, None),
         'estimate_forecast': Or(str, None),
         'id': int,
@@ -71,21 +76,25 @@ class CaseModel(CreatedByMixin, CreatedOnMixin, EstimateMixin, EstimateForecastM
         'template_id': int,
         'title': str,
         'type_id': int,
-        'updated_id': int,
+        'updated_by': int,
         'updated_on': int
     })
 
     def get(self, case_id):
         response = self._get(case_id=case_id)
         self._update_data(response)
+        return response
 
     def add(self, section_id):
         response = self._add(section_id=section_id)
         self._update_data(response)
+        return response
 
     def update(self):
         response = self._update(case_id=self.id)
         self._update_data(response)
+        return response
 
     def delete(self):
-        self._delete(case_id=self.id)
+        response = self._delete(case_id=self.id)
+        return response

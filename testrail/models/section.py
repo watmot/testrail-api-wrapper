@@ -53,15 +53,18 @@ class SectionModel(DepthMixin, DescriptionMixin, DisplayOrderMixin, IdMixin, Par
     def get(self, section_id):
         response = self._get(section_id=section_id)
         self._update_data(response)
+        return response
 
     def add(self, project_id):
         response = self._add(project_id=project_id)
         self._update_data(response)
+        return response
 
     def update(self):
         response = self._update(section_id=self.id)
         self._update_data(response)
+        return response
 
     def delete(self):
-        self._delete(section_id=self.id)
-
+        response = self._delete(section_id=self.id)
+        return response

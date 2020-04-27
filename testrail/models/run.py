@@ -102,18 +102,23 @@ class RunModel(AssignedToIdMixin, BlockedCountMixin, CompletedOnMixin, CreatedBy
     def get(self, run_id):
         response = self._get(run_id=run_id)
         self._update_data(response)
+        return response
 
     def add(self, project_id):
         response = self._add(project_id=project_id)
         self._update_data(response)
+        return response
 
     def update(self):
         response = self._update(run_id=self.id)
         self._update_data(response)
+        return response
 
     def close(self):
         response = self._close(run_id=self.id)
         self._update_data(response)
+        return response
 
     def delete(self):
-        self._delete(run_id=self.id)
+        response = self._delete(run_id=self.id)
+        return response

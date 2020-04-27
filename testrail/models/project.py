@@ -51,15 +51,18 @@ class ProjectModel(AnnouncementMixin, CompletedOnMixin, IdMixin, IsCompletedMixi
     def get(self, project_id):
         response = self._get(project_id=project_id)
         self._update_data(response)
+        return response
 
     def add(self):
         response = self._add()
         self._update_data(response)
+        return response
 
     def update(self):
         response = self._update(project_id=self.id)
         self._update_data(response)
+        return response
 
     def delete(self):
-        self._delete(project_id=self.id)
-
+        response = self._delete(project_id=self.id)
+        return response

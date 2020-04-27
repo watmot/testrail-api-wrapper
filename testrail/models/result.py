@@ -1,4 +1,3 @@
-import logging
 from schema import Schema, Or
 
 from testrail.models.base import PostModel
@@ -52,10 +51,6 @@ class ResultModel(AssignedToIdMixin, CommentMixin, CreatedByMixin, CreatedOnMixi
     })
 
     def add(self, test_id=None):
-        if self.test_id:
-            test_id = self.test_id
-        if self.test_id and test_id:
-            logging.warning(msg='Instance variable of `test id` takes precedence over `test id` kwarg.')
-
         response = self._add(test_id=test_id)
         self._update_data(response)
+        return response
