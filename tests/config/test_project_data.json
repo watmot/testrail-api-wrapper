@@ -1,0 +1,11 @@
+{
+  "new": {
+    "name": "Test Project",
+    "announcement": "Test Project Announcement",
+    "show_announcement": true,
+    "suite_mode": 3
+  },
+  "updated": {
+    "is_completed": true
+  }
+}

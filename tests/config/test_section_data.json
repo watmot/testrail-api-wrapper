@@ -1,0 +1,9 @@
+{
+  "new": {
+    "name": "Test Section",
+    "description": "Test Section Description"
+  },
+  "updated": {
+    "name": "Updated Test Section"
+  }
+}

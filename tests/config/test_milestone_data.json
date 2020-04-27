@@ -1,0 +1,11 @@
+{
+  "new": {
+    "name": "Test Milestone",
+    "description": "Test Milestone Description",
+    "due_on": 1577232000,
+    "start_on": 1566730691
+  },
+  "updated": {
+    "is_completed": true
+  }
+}

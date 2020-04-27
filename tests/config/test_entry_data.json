@@ -1,0 +1,11 @@
+{
+  "new": {
+    "suite_id": 5934,
+    "name": "Test Entry",
+    "description": "Test Entry Description",
+    "include_all": true
+  },
+  "updated": {
+    "name": "Updated Test Entry"
+  }
+}

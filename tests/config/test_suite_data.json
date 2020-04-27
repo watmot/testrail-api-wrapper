@@ -1,0 +1,9 @@
+{
+  "new": {
+    "name": "Test Suite",
+    "description": "Test Suite Description"
+  },
+  "updated": {
+    "name": "Updated Test Suite"
+  }
+}
