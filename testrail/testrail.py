@@ -41,8 +41,8 @@ class Testrail:
         return SectionModel(section_id=section_id) if section_id else SectionModel()
 
     @staticmethod
-    def sections(project_id=None):
-        return SectionCollection(project_id=project_id)
+    def sections(project_id=None, suite_id=None):
+        return SectionCollection(project_id=project_id, suite_id=suite_id)
 
     @staticmethod
     def case(case_id=None):
