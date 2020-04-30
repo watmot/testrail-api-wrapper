@@ -66,8 +66,11 @@ class Testrail:
         return PlanModel(plan_id=plan_id) if plan_id else PlanModel()
 
     @staticmethod
-    def plans(project_id=None, **parameters):
-        return PlanCollection(project_id=project_id)
+    def plans(project_id=None, created_after=None, created_before=None, created_by=None, is_completed=None,
+              limit=None, offset=None, milestone_id=None):
+        return PlanCollection(project_id=project_id, created_after=created_after, created_before=created_before,
+                              created_by=created_by, is_completed=is_completed, limit=limit, offset=offset,
+                              milestone_id=milestone_id)
 
     @staticmethod
     def run(run_id=None):

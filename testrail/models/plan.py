@@ -1,4 +1,4 @@
-from schema import Schema, Or
+from schema import Schema, Optional, Or
 
 from testrail.models.base import PostModel
 
@@ -76,7 +76,7 @@ class PlanModel(AssignedToIdMixin, BlockedCountMixin, CompletedOnMixin, CreatedB
         'custom_status6_count': int,
         'custom_status7_count': int,
         'description': Or(str, None),
-        'entries': Or(list, None),
+        Optional('entries'): Or(list, None),
         'failed_count': int,
         'id': int,
         'is_completed': bool,
