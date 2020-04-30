@@ -6,5 +6,5 @@ from testrail.models.run import RunModel
 class RunCollection(GetMixin, BaseCollection):
     MODEL = RunModel
     ENDPOINTS = {
-        'get': 'get_runs/{project_id}'
+        'get': 'get_runs/{test_id}'
     }

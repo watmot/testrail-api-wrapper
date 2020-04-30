@@ -1,3 +1,5 @@
+from schema import Schema
+
 from collections.abc import MutableSequence
 
 
@@ -5,13 +7,11 @@ class BaseCollection(MutableSequence):
     MODEL = None
     ENDPOINTS = None
 
-    def __init__(self):
+    def __init__(self, **parameters):
         self._data = []
 
     def _check_item(self, item):
-        if isinstance(item, self.MODEL):
-            return True
-        return False
+        return Schema(self.MODEL).is_valid(item)
 
     def __setitem__(self, index, value):
         if self._check_item(value):

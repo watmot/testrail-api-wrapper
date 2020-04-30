@@ -8,3 +8,6 @@ class PlanCollection(GetMixin, BaseCollection):
     ENDPOINTS = {
         'get': 'get_plans/{project_id}'
     }
+
+    def get(self, project_id):
+        self._get(project_id=project_id)

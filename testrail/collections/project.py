@@ -10,3 +10,8 @@ class ProjectCollection(GetMixin, BaseCollection):
     ENDPOINTS = {
         'get': 'get_projects'
     }
+
+    def get(self, **parameters):
+        query_string = self._parse_query_string(**parameters)
+        response = self._get(query_string=query_string)
+        return response

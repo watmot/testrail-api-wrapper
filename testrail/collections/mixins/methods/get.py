@@ -4,20 +4,17 @@ from testrail.request import TestrailRequest
 class GetMixin:
     def __init__(self, **parameters):
         super().__init__()
-        if parameters:
-            self.get(**parameters)
+        self.get(**parameters)
 
-    def get(self, **parameters):
-        project_id = test_id = None
+    @staticmethod
+    def _parse_query_string(**kwargs):
+        query_string = ''
+        for k, v in kwargs.items():
+            query_string += f'&{k}={v}'
+        return query_string
 
-        if 'project_id' in parameters:
-            project_id = parameters.pop('project_id')
-        elif 'test_id' in parameters:
-            test_id = parameters.pop('test_id')
-
-        response = TestrailRequest.get(uri=self.ENDPOINTS['get'].format(project_id=project_id,
-                                                                        test_id=test_id),
-                                       parameters=parameters)
-        data = response.json()
-
-        self._data = [self.MODEL(data=i) for i in data] if data else []
+    def _get(self, **parameters):
+        response = TestrailRequest.get(uri=self.ENDPOINTS['get'].format(**parameters))
+        response_json = response.json()
+        self._data = [self.MODEL(data=i) for i in response_json] if response_json else []
+        return response
