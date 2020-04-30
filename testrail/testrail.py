@@ -25,41 +25,42 @@ class Testrail:
         return ProjectModel(project_id=project_id) if project_id else ProjectModel()
 
     @staticmethod
-    def projects(is_completed=None):
-        return ProjectCollection(is_completed=is_completed)
+    def projects(is_completed=None, **parameters):
+        return ProjectCollection(is_completed=is_completed, **parameters)
 
     @staticmethod
     def suite(suite_id=None):
         return SuiteModel(suite_id=suite_id) if suite_id else SuiteModel()
 
     @staticmethod
-    def suites(project_id=None):
-        return SuiteCollection(project_id=project_id)
+    def suites(project_id=None, **parameters):
+        return SuiteCollection(project_id=project_id, **parameters)
 
     @staticmethod
     def section(section_id=None):
         return SectionModel(section_id=section_id) if section_id else SectionModel()
 
     @staticmethod
-    def sections(project_id=None, suite_id=None):
-        return SectionCollection(project_id=project_id, suite_id=suite_id)
+    def sections(project_id=None, suite_id=None, **parameters):
+        return SectionCollection(project_id=project_id, suite_id=suite_id, **parameters)
 
     @staticmethod
     def case(case_id=None):
         return CaseModel(case_id=case_id) if case_id else CaseModel()
 
     @staticmethod
-    def cases(project_id=None, suite_id=None, section_id=None, limit=None, offset=None, filter=None):
+    def cases(project_id=None, suite_id=None, section_id=None, limit=None, offset=None, filter=None, **parameters):
         return CaseCollection(project_id=project_id, suite_id=suite_id, section_id=section_id, limit=limit,
-                              offset=offset, filter=filter)
+                              offset=offset, filter=filter, **parameters)
 
     @staticmethod
     def milestone(milestone_id=None):
         return MilestoneModel(milestone_id=milestone_id) if milestone_id else MilestoneModel()
 
     @staticmethod
-    def milestones(project_id=None, is_completed=None, is_started=None):
-        return MilestoneCollection(project_id=project_id, is_completed=is_completed, is_started=is_started)
+    def milestones(project_id=None, is_completed=None, is_started=None, **parameters):
+        return MilestoneCollection(project_id=project_id, is_completed=is_completed, is_started=is_started,
+                                   **parameters)
 
     @staticmethod
     def plan(plan_id=None):
@@ -67,10 +68,10 @@ class Testrail:
 
     @staticmethod
     def plans(project_id=None, created_after=None, created_before=None, created_by=None, is_completed=None,
-              limit=None, offset=None, milestone_id=None):
+              limit=None, offset=None, milestone_id=None, **parameters):
         return PlanCollection(project_id=project_id, created_after=created_after, created_before=created_before,
                               created_by=created_by, is_completed=is_completed, limit=limit, offset=offset,
-                              milestone_id=milestone_id)
+                              milestone_id=milestone_id, **parameters)
 
     @staticmethod
     def run(run_id=None):
@@ -78,10 +79,10 @@ class Testrail:
 
     @staticmethod
     def runs(project_id=None, created_after=None, created_before=None, created_by=None, is_completed=None, limit=None,
-             offset=None, milestone_id=None, suite_id=None):
+             offset=None, milestone_id=None, suite_id=None, **parameters):
         return RunCollection(project_id=project_id, created_after=created_after, created_before=created_before,
                              created_by=created_by, is_completed=is_completed, limit=limit, offset=offset,
-                             milestone_id=milestone_id, suite_id=suite_id)
+                             milestone_id=milestone_id, suite_id=suite_id, **parameters)
 
     # @staticmethod
     # def entry(plan_id=None, entry_id=None):
