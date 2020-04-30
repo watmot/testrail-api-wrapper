@@ -10,7 +10,8 @@ class GetMixin:
     def _parse_query_string(**kwargs):
         query_string = ''
         for k, v in kwargs.items():
-            query_string += f'&{k}={v}'
+            if v:
+                query_string += f'&{k}={v}'
         return query_string
 
     def _get(self, **parameters):
