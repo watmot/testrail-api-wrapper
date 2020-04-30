@@ -25,8 +25,8 @@ class Testrail:
         return ProjectModel(project_id=project_id) if project_id else ProjectModel()
 
     @staticmethod
-    def projects():
-        return ProjectCollection()
+    def projects(is_completed=None):
+        return ProjectCollection(is_completed=is_completed)
 
     @staticmethod
     def suite(suite_id=None):
@@ -41,7 +41,7 @@ class Testrail:
         return SectionModel(section_id=section_id) if section_id else SectionModel()
 
     @staticmethod
-    def sections(project_id=None, **parameters):
+    def sections(project_id=None):
         return SectionCollection(project_id=project_id)
 
     @staticmethod
