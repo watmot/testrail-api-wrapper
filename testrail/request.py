@@ -13,12 +13,11 @@ class TestrailRequest:
 
     @classmethod
     @retry
-    def _request(cls, method, uri=None, payload=None, **parameters):
+    def _request(cls, method, uri=None, payload=None):
         response = method(url=cls.URL + uri,
                           auth=cls.AUTH,
                           headers=cls.HEADERS,
-                          data=payload,
-                          params=parameters)
+                          data=payload)
 
         if response.status_code == 429:
             raise TooManyRequestsError(delay=response.headers['Retry-After'])
@@ -28,16 +27,14 @@ class TestrailRequest:
         return response
 
     @classmethod
-    def get(cls, uri=None, **parameters):
+    def get(cls, uri=None):
         response = cls._request(method=requests.get,
-                                uri=uri,
-                                params=parameters)
+                                uri=uri)
         return response
 
     @classmethod
-    def post(cls, uri=None, payload=None, **parameters):
+    def post(cls, uri=None, payload=None):
         response = cls._request(method=requests.post,
                                 uri=uri,
-                                payload=payload,
-                                params=parameters)
+                                payload=payload)
         return response
