@@ -77,8 +77,11 @@ class Testrail:
         return RunModel(run_id=run_id) if run_id else RunModel()
 
     @staticmethod
-    def runs(project_id=None, **parameters):
-        return RunCollection(project_id=project_id)
+    def runs(project_id=None, created_after=None, created_before=None, created_by=None, is_completed=None, limit=None,
+             offset=None, milestone_id=None, suite_id=None):
+        return RunCollection(project_id=project_id, created_after=created_after, created_before=created_before,
+                             created_by=created_by, is_completed=is_completed, limit=limit, offset=offset,
+                             milestone_id=milestone_id, suite_id=suite_id)
 
     # @staticmethod
     # def entry(plan_id=None, entry_id=None):
