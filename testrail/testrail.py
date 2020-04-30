@@ -58,8 +58,8 @@ class Testrail:
         return MilestoneModel(milestone_id=milestone_id) if milestone_id else MilestoneModel()
 
     @staticmethod
-    def milestones(project_id=None, **parameters):
-        return MilestoneCollection(project_id=project_id)
+    def milestones(project_id=None, is_completed=None, is_started=None):
+        return MilestoneCollection(project_id=project_id, is_completed=is_completed, is_started=is_started)
 
     @staticmethod
     def plan(plan_id=None):

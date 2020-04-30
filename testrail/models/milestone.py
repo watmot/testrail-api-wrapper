@@ -1,4 +1,4 @@
-from schema import Schema, Or
+from schema import Schema, Optional, Or
 
 from testrail.models.base import PostModel
 
@@ -55,7 +55,7 @@ class MilestoneModel(CompletedOnMixin, DescriptionMixin, DueOnMixin, IdMixin, Is
         'id': int,
         'is_completed': bool,
         'is_started': bool,
-        'milestones': Or(list, None),
+        Optional('milestones'): Or(list, None),
         'name': str,
         'parent_id': Or(int, None),
         'project_id': int,
