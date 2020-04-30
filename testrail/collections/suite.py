@@ -8,3 +8,7 @@ class SuiteCollection(GetMixin, BaseCollection):
     ENDPOINTS = {
         'get': 'get_suites/{project_id}'
     }
+
+    def get(self, project_id=None):
+        response = self._get(project_id=project_id)
+        return response
