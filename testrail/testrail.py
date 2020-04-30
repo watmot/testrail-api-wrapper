@@ -49,8 +49,9 @@ class Testrail:
         return CaseModel(case_id=case_id) if case_id else CaseModel()
 
     @staticmethod
-    def cases(project_id=None, **parameters):
-        return CaseCollection(project_id=project_id)
+    def cases(project_id=None, suite_id=None, section_id=None, limit=None, offset=None, filter=None):
+        return CaseCollection(project_id=project_id, suite_id=suite_id, section_id=section_id, limit=limit,
+                              offset=offset, filter=filter)
 
     @staticmethod
     def milestone(milestone_id=None):
