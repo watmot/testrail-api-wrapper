@@ -52,5 +52,4 @@ class ResultModel(AssignedToIdMixin, CommentMixin, CreatedByMixin, CreatedOnMixi
 
     def add(self, test_id=None):
         response = self._add(test_id=test_id)
-        self._update_data(response)
         return response

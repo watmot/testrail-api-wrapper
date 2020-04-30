@@ -91,22 +91,18 @@ class PlanModel(AssignedToIdMixin, BlockedCountMixin, CompletedOnMixin, CreatedB
 
     def get(self, plan_id):
         response = self._get(plan_id=plan_id)
-        self._update_data(response)
         return response
 
     def add(self, project_id):
         response = self._add(project_id=project_id)
-        self._update_data(response)
         return response
 
     def update(self):
         response = self._update(plan_id=self.id)
-        self._update_data(response)
         return response
 
     def close(self):
         response = self._close(plan_id=self.id)
-        self._update_data(response)
         return response
 
     def delete(self):

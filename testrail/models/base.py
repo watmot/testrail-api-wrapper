@@ -5,11 +5,13 @@ class BaseModel:
     ENDPOINTS = None
     SCHEMA = None
 
-    def __init__(self):
+    def __init__(self, data=None):
         self._data = {}
 
-    def _update_data(self, response):
-        data = response.json()
+        if data:
+            self._update_data(data)
+
+    def _update_data(self, data):
         validated_data = self.SCHEMA.validate(data)
         self._data.update(validated_data)
 

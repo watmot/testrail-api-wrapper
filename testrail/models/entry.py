@@ -56,11 +56,12 @@ class EntryModel(SuiteIdMixin, NameMixin, DescriptionMixin, AssignedToIdMixin, C
 
     def add(self, plan_id):
         response = self._add(plan_id=plan_id)
-        self._update_data(response)
+        return response
 
     def update(self):
         response = self._update(plan_id=self.plan_id, entry_id=self.id)
-        self._update_data(response)
+        return response
 
     def delete(self):
-        self._delete(plan_id=self.plan_id, entry_id=self.id)
+        response = self._delete(plan_id=self.plan_id, entry_id=self.id)
+        return response

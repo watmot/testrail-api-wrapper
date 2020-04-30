@@ -82,17 +82,14 @@ class CaseModel(CreatedByMixin, CreatedOnMixin, EstimateMixin, EstimateForecastM
 
     def get(self, case_id):
         response = self._get(case_id=case_id)
-        self._update_data(response)
         return response
 
     def add(self, section_id):
         response = self._add(section_id=section_id)
-        self._update_data(response)
         return response
 
     def update(self):
         response = self._update(case_id=self.id)
-        self._update_data(response)
         return response
 
     def delete(self):

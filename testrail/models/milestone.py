@@ -66,17 +66,14 @@ class MilestoneModel(CompletedOnMixin, DescriptionMixin, DueOnMixin, IdMixin, Is
 
     def get(self, milestone_id):
         response = self._get(milestone_id=milestone_id)
-        self._update_data(response)
         return response
 
     def add(self, project_id):
         response = self._add(project_id=project_id)
-        self._update_data(response)
         return response
 
     def update(self):
         response = self._update(milestone_id=self.id)
-        self._update_data(response)
         return response
 
     def delete(self):
