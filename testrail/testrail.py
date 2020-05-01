@@ -17,6 +17,7 @@ from testrail.collections.case_type import CaseTypeCollection
 from testrail.collections.entry import EntryCollection
 from testrail.collections.milestone import MilestoneCollection
 from testrail.collections.plan import PlanCollection
+from testrail.collections.priority import PriorityCollection
 from testrail.collections.project import ProjectCollection
 from testrail.collections.result_field import ResultFieldCollection
 from testrail.collections.run import RunCollection
@@ -61,6 +62,10 @@ class Testrail:
         return PlanCollection(project_id=project_id, created_after=created_after, created_before=created_before,
                               created_by=created_by, is_completed=is_completed, limit=limit, offset=offset,
                               milestone_id=milestone_id, **parameters)
+
+    @staticmethod
+    def priorities(**parameters):
+        return PriorityCollection(**parameters)
 
     @staticmethod
     def project(project_id=None):
