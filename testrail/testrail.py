@@ -21,6 +21,7 @@ from testrail.collections.project import ProjectCollection
 from testrail.collections.result_field import ResultFieldCollection
 from testrail.collections.run import RunCollection
 from testrail.collections.section import SectionCollection
+from testrail.collections.status import StatusCollection
 from testrail.collections.suite import SuiteCollection
 from testrail.collections.template import TemplateCollection
 from testrail.collections.test import TestCollection
@@ -91,6 +92,10 @@ class Testrail:
     @staticmethod
     def sections(project_id=None, suite_id=None, **parameters):
         return SectionCollection(project_id=project_id, suite_id=suite_id, **parameters)
+
+    @staticmethod
+    def statuses(**parameters):
+        return StatusCollection(**parameters)
 
     @staticmethod
     def suite(suite_id=None):
