@@ -4,6 +4,7 @@ from testrail.models.entry import EntryModel
 from testrail.models.milestone import MilestoneModel
 from testrail.models.plan import PlanModel
 from testrail.models.project import ProjectModel
+from testrail.models.result_field import ResultFieldModel
 from testrail.models.run import RunModel
 from testrail.models.section import SectionModel
 from testrail.models.suite import SuiteModel
@@ -17,6 +18,7 @@ from testrail.collections.entry import EntryCollection
 from testrail.collections.milestone import MilestoneCollection
 from testrail.collections.plan import PlanCollection
 from testrail.collections.project import ProjectCollection
+from testrail.collections.result_field import ResultFieldCollection
 from testrail.collections.run import RunCollection
 from testrail.collections.section import SectionCollection
 from testrail.collections.suite import SuiteCollection
@@ -66,6 +68,10 @@ class Testrail:
     @staticmethod
     def projects(is_completed=None, **parameters):
         return ProjectCollection(is_completed=is_completed, **parameters)
+
+    @staticmethod
+    def result_fields(**parameters):
+        return ResultFieldCollection(**parameters)
 
     @staticmethod
     def run(run_id=None):
