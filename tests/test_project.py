@@ -1,11 +1,13 @@
+import random
+
 from testrail import Testrail
 
 
 class TestProject:
-    # def test_get_projects(self):
-    #     projects = Testrail.projects()
-    #     index = random.randint(0, len(projects)-1)
-    #     assert projects[index].id
+    def test_get_projects(self):
+        projects = Testrail.projects()
+        index = random.randint(0, len(projects)-1)
+        assert projects[index].id
 
     def test_get_project(self, project):
         test_project = Testrail.project(project_id=project.id)

@@ -7,6 +7,7 @@ from testrail.models.project import ProjectModel
 from testrail.models.run import RunModel
 from testrail.models.section import SectionModel
 from testrail.models.suite import SuiteModel
+from testrail.models.template import TemplateModel
 from testrail.models.test import TestModel
 from testrail.models.user import UserModel
 
@@ -19,6 +20,7 @@ from testrail.collections.project import ProjectCollection
 from testrail.collections.run import RunCollection
 from testrail.collections.section import SectionCollection
 from testrail.collections.suite import SuiteCollection
+from testrail.collections.template import TemplateCollection
 from testrail.collections.test import TestCollection
 from testrail.collections.user import UserCollection
 
@@ -93,13 +95,16 @@ class Testrail:
         return SuiteCollection(project_id=project_id, **parameters)
 
     @staticmethod
+    def templates(project_id=None, **parameters):
+        return TemplateCollection(project_id=project_id, **parameters)
+
+    @staticmethod
     def user(user_id=None):
         return UserModel(user_id=user_id) if user_id else UserModel()
 
     @staticmethod
     def users(**parameters):
         return UserCollection(**parameters)
-
 
     # @staticmethod
     # def entry(plan_id=None, entry_id=None):
