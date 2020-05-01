@@ -6,7 +6,7 @@ from testrail.models.suite import SuiteModel
 class SuiteCollection(GetMixin, BaseCollection):
     MODEL = SuiteModel
     ENDPOINTS = {
-        'get': 'get_suites/{project_id}'
+        'get': 'get_suites/{project_id}{query_string}'
     }
 
     def get(self, project_id=None):

@@ -6,5 +6,5 @@ from testrail.models.result import ResultModel
 class ResultCollection(GetMixin, BaseCollection):
     MODEL = ResultModel
     ENDPOINTS = {
-        'get': 'get_results/{project_id}'
+        'get': 'get_results/{project_id}{query_string}'
     }
