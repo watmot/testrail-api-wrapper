@@ -20,8 +20,7 @@ class ResultModel(AssignedToIdMixin, CommentMixin, CreatedByMixin, CreatedOnMixi
                   StatusIdMixin, TestIdMixin, VersionMixin, AddMixin, PostModel):
 
     ENDPOINTS = {
-        'add': 'add_result/{test_id}}',
-        'add_collection': 'add_results/{run_id}'
+        'add': 'add_result/{test_id}'
     }
 
     POST_FIELDS = {
@@ -31,7 +30,6 @@ class ResultModel(AssignedToIdMixin, CommentMixin, CreatedByMixin, CreatedOnMixi
             'version',
             'elapsed',
             'defects',
-            'suite_mode',
             'assigned_to_id'
         ]
     }
@@ -47,8 +45,11 @@ class ResultModel(AssignedToIdMixin, CommentMixin, CreatedByMixin, CreatedOnMixi
         'id': int,
         'status_id': int,
         'test_id': int,
-        'version': Or(str, None)
-    })
+        'version': Or(str, None),
+
+    },
+        ignore_extra_keys=True
+    )
 
     def add(self, test_id=None):
         response = self._add(test_id=test_id)

@@ -6,5 +6,10 @@ from testrail.models.result import ResultModel
 class ResultCollection(GetMixin, BaseCollection):
     MODEL = ResultModel
     ENDPOINTS = {
-        'get': 'get_results/{project_id}{query_string}'
+        'get': 'get_results/{test_id}{query_string}'
     }
+
+    def get(self, test_id=None, **parameters):
+        query_string = self._parse_query_string(**parameters)
+        response = self._get(test_id=test_id, query_string=query_string)
+        return response
