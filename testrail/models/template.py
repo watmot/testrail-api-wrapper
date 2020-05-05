@@ -2,9 +2,9 @@ from schema import Schema
 
 from testrail.models.base import BaseModel
 
-from testrail.models.mixins.fields.id import IdMixin
-from testrail.models.mixins.fields.is_default import IsDefaultMixin
-from testrail.models.mixins.fields.name import NameMixin
+from testrail.models.mixins.fields import IdMixin
+from testrail.models.mixins.fields import IsDefaultMixin
+from testrail.models.mixins.fields import NameMixin
 
 
 class TemplateModel(IdMixin, IsDefaultMixin, NameMixin, BaseModel):

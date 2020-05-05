@@ -2,27 +2,27 @@ from schema import Schema, Optional, Or
 
 from testrail.models.base import PostModel
 
-from testrail.models.mixins.fields.created_by import CreatedByMixin
-from testrail.models.mixins.fields.created_on import CreatedOnMixin
-from testrail.models.mixins.fields.estimate import EstimateMixin
-from testrail.models.mixins.fields.estimate_forecast import EstimateForecastMixin
-from testrail.models.mixins.fields.id import IdMixin
-from testrail.models.mixins.fields.milestone_id import MilestoneIdMixin
-from testrail.models.mixins.fields.project_id import ProjectIdMixin
-from testrail.models.mixins.fields.priority_id import PriorityIdMixin
-from testrail.models.mixins.fields.refs import RefsMixin
-from testrail.models.mixins.fields.section_id import SectionIdMixin
-from testrail.models.mixins.fields.suite_id import SuiteIdMixin
-from testrail.models.mixins.fields.template_id import TemplateIdMixin
-from testrail.models.mixins.fields.title import TitleMixin
-from testrail.models.mixins.fields.type_id import TypeIdMixin
-from testrail.models.mixins.fields.updated_by import UpdatedByMixin
-from testrail.models.mixins.fields.updated_on import UpdatedOnMixin
+from testrail.models.mixins.fields import CreatedByMixin
+from testrail.models.mixins.fields import CreatedOnMixin
+from testrail.models.mixins.fields import EstimateMixin
+from testrail.models.mixins.fields import EstimateForecastMixin
+from testrail.models.mixins.fields import IdMixin
+from testrail.models.mixins.fields import MilestoneIdMixin
+from testrail.models.mixins.fields import ProjectIdMixin
+from testrail.models.mixins.fields import PriorityIdMixin
+from testrail.models.mixins.fields import RefsMixin
+from testrail.models.mixins.fields import SectionIdMixin
+from testrail.models.mixins.fields import SuiteIdMixin
+from testrail.models.mixins.fields import TemplateIdMixin
+from testrail.models.mixins.fields import TitleMixin
+from testrail.models.mixins.fields import TypeIdMixin
+from testrail.models.mixins.fields import UpdatedByMixin
+from testrail.models.mixins.fields import UpdatedOnMixin
 
-from testrail.models.mixins.methods.get import GetMixin
-from testrail.models.mixins.methods.add import AddMixin
-from testrail.models.mixins.methods.update import UpdateMixin
-from testrail.models.mixins.methods.delete import DeleteMixin
+from testrail.models.mixins.methods import GetMixin
+from testrail.models.mixins.methods import AddMixin
+from testrail.models.mixins.methods import UpdateMixin
+from testrail.models.mixins.methods import DeleteMixin
 
 
 class CaseModel(CreatedByMixin, CreatedOnMixin, EstimateMixin, EstimateForecastMixin, IdMixin, MilestoneIdMixin,

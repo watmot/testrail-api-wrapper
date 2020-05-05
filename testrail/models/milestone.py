@@ -2,23 +2,23 @@ from schema import Schema, Optional, Or
 
 from testrail.models.base import PostModel
 
-from testrail.models.mixins.fields.completed_on import CompletedOnMixin
-from testrail.models.mixins.fields.description import DescriptionMixin
-from testrail.models.mixins.fields.due_on import DueOnMixin
-from testrail.models.mixins.fields.id import IdMixin
-from testrail.models.mixins.fields.name import NameMixin
-from testrail.models.mixins.fields.is_completed import IsCompletedMixin
-from testrail.models.mixins.fields.is_started import IsStartedMixin
-from testrail.models.mixins.fields.parent_id import ParentIdMixin
-from testrail.models.mixins.fields.project_id import ProjectIdMixin
-from testrail.models.mixins.fields.start_on import StartOnMixin
-from testrail.models.mixins.fields.started_on import StartedOnMixin
-from testrail.models.mixins.fields.url import UrlMixin
+from testrail.models.mixins.fields import CompletedOnMixin
+from testrail.models.mixins.fields import DescriptionMixin
+from testrail.models.mixins.fields import DueOnMixin
+from testrail.models.mixins.fields import IdMixin
+from testrail.models.mixins.fields import NameMixin
+from testrail.models.mixins.fields import IsCompletedMixin
+from testrail.models.mixins.fields import IsStartedMixin
+from testrail.models.mixins.fields import ParentIdMixin
+from testrail.models.mixins.fields import ProjectIdMixin
+from testrail.models.mixins.fields import StartOnMixin
+from testrail.models.mixins.fields import StartedOnMixin
+from testrail.models.mixins.fields import UrlMixin
 
-from testrail.models.mixins.methods.get import GetMixin
-from testrail.models.mixins.methods.add import AddMixin
-from testrail.models.mixins.methods.update import UpdateMixin
-from testrail.models.mixins.methods.delete import DeleteMixin
+from testrail.models.mixins.methods import GetMixin
+from testrail.models.mixins.methods import AddMixin
+from testrail.models.mixins.methods import UpdateMixin
+from testrail.models.mixins.methods import DeleteMixin
 
 
 class MilestoneModel(CompletedOnMixin, DescriptionMixin, DueOnMixin, IdMixin, IsCompletedMixin,  IsStartedMixin,

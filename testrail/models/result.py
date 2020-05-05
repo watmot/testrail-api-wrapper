@@ -2,18 +2,18 @@ from schema import Schema, Or
 
 from testrail.models.base import PostModel
 
-from testrail.models.mixins.fields.assignedto_id import AssignedToIdMixin
-from testrail.models.mixins.fields.comment import CommentMixin
-from testrail.models.mixins.fields.created_by import CreatedByMixin
-from testrail.models.mixins.fields.created_on import CreatedOnMixin
-from testrail.models.mixins.fields.defects import DefectsMixin
-from testrail.models.mixins.fields.elapsed import ElapsedMixin
-from testrail.models.mixins.fields.id import IdMixin
-from testrail.models.mixins.fields.status_id import StatusIdMixin
-from testrail.models.mixins.fields.test_id import TestIdMixin
-from testrail.models.mixins.fields.version import VersionMixin
+from testrail.models.mixins.fields import AssignedToIdMixin
+from testrail.models.mixins.fields import CommentMixin
+from testrail.models.mixins.fields import CreatedByMixin
+from testrail.models.mixins.fields import CreatedOnMixin
+from testrail.models.mixins.fields import DefectsMixin
+from testrail.models.mixins.fields import ElapsedMixin
+from testrail.models.mixins.fields import IdMixin
+from testrail.models.mixins.fields import StatusIdMixin
+from testrail.models.mixins.fields import TestIdMixin
+from testrail.models.mixins.fields import VersionMixin
 
-from testrail.models.mixins.methods.add import AddMixin
+from testrail.models.mixins.methods import AddMixin
 
 
 class ResultModel(AssignedToIdMixin, CommentMixin, CreatedByMixin, CreatedOnMixin, DefectsMixin, ElapsedMixin, IdMixin,

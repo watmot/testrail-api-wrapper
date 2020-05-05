@@ -1,25 +1,50 @@
+from schema import Schema, Or
+
 from testrail.models.base import BaseModel
 
-from testrail.models.mixins.fields.assignedto_id import AssignedToIdMixin
-from testrail.models.mixins.fields.case_id import CaseIdMixin
-from testrail.models.mixins.fields.estimate import EstimateMixin
-from testrail.models.mixins.fields.estimate_forecast import EstimateForecastMixin
-from testrail.models.mixins.fields.id import IdMixin
-from testrail.models.mixins.fields.milestone_id import MilestoneIdMixin
-from testrail.models.mixins.fields.priority_id import PriorityIdMixin
-from testrail.models.mixins.fields.refs import RefsMixin
-from testrail.models.mixins.fields.run_id import RunIdMixin
-from testrail.models.mixins.fields.status_id import StatusIdMixin
-from testrail.models.mixins.fields.title import TitleMixin
-from testrail.models.mixins.fields.type_id import TypeIdMixin
+from testrail.models.mixins.fields import CompletedOnMixin
+from testrail.models.mixins.fields import DescriptionMixin
+from testrail.models.mixins.fields import IdMixin
+from testrail.models.mixins.fields import IsBaselineMixin
+from testrail.models.mixins.fields import IsCompletedMixin
+from testrail.models.mixins.fields import IsMasterMixin
+from testrail.models.mixins.fields import NameMixin
+from testrail.models.mixins.fields import ProjectIdMixin
+from testrail.models.mixins.fields import UrlMixin
 
-from testrail.models.mixins.methods.get import GetMixin
+from testrail.models.mixins.methods import GetMixin
 
 
-class TestModel(AssignedToIdMixin, CaseIdMixin, EstimateMixin, EstimateForecastMixin, IdMixin, MilestoneIdMixin,
-                PriorityIdMixin, RefsMixin, RunIdMixin, StatusIdMixin, TitleMixin, TypeIdMixin, GetMixin, BaseModel):
+class TestModel(CompletedOnMixin, DescriptionMixin, IdMixin, IsBaselineMixin, IsCompletedMixin, IsMasterMixin,
+                 NameMixin, ProjectIdMixin, UrlMixin, GetMixin, BaseModel):
 
     ENDPOINTS = {
-        'get': 'get_test/{test_id}',
-        'get_collection': 'get_tests/{run_id}{params}',
+        'get': 'get_suite/{suite_id}',
     }
+
+    POST_FIELDS = {
+        'add': [
+            'name',
+            'description'
+        ],
+        'update': [
+            'name',
+            'description'
+        ]
+    }
+
+    SCHEMA = Schema({
+        'completed_on': Or(str, None),
+        'description': str,
+        'id': int,
+        'is_baseline': bool,
+        'is_completed': bool,
+        'is_master': bool,
+        'name': str,
+        'project_id': int,
+        'url': str
+    })
+
+    def get(self, suite_id):
+        response = self._get(suite_id=suite_id)
+        return response

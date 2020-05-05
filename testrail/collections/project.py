@@ -1,5 +1,5 @@
 from testrail.collections.base import BaseCollection
-from testrail.collections.mixins.methods.get import GetMixin
+from testrail.collections.mixins.methods import GetMixin
 from testrail.models.project import ProjectModel
 
 

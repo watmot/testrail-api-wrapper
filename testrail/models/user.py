@@ -2,12 +2,12 @@ from schema import Schema
 
 from testrail.models.base import BaseModel
 
-from testrail.models.mixins.fields.email import EmailMixin
-from testrail.models.mixins.fields.id import IdMixin
-from testrail.models.mixins.fields.is_active import IsActiveMixin
-from testrail.models.mixins.fields.name import NameMixin
+from testrail.models.mixins.fields import EmailMixin
+from testrail.models.mixins.fields import IdMixin
+from testrail.models.mixins.fields import IsActiveMixin
+from testrail.models.mixins.fields import NameMixin
 
-from testrail.models.mixins.methods.get import GetMixin
+from testrail.models.mixins.methods import GetMixin
 
 
 class UserModel(EmailMixin, IdMixin, IsActiveMixin, NameMixin, GetMixin, BaseModel):

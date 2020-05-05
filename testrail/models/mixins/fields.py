@@ -41,6 +41,96 @@ class CaseIdsMixin:
         self._data['case_ids'] = ids
 
 
+class CasesColumnsMixin:
+    @property
+    def cases_columns(self):
+        return self._data.get('cases_columns')
+
+    @cases_columns.setter
+    def cases_columns(self, arg):
+        self._data['cases_columns'] = arg
+
+
+class CasesFiltersMixin:
+    @property
+    def cases_filters(self):
+        return self._data.get('cases_filters')
+
+    @cases_filters.setter
+    def cases_filters(self, arg):
+        self._data['cases_filters'] = arg
+
+
+class CasesIncludeNewMixin:
+    @property
+    def cases_include_new(self):
+        return self._data.get('cases_include_new')
+
+    @cases_include_new.setter
+    def cases_include_new(self, arg):
+        self._data['cases_include_new'] = arg
+
+
+class CasesIncludeUpdatedMixin:
+    @property
+    def cases_include_updated(self):
+        return self._data.get('cases_include_updated')
+
+    @cases_include_updated.setter
+    def cases_include_updated(self, arg):
+        self._data['cases_include_updated'] = arg
+
+
+class CasesGroupByMixin:
+    @property
+    def cases_group_by(self):
+        return self._data.get('cases_group_by')
+
+    @cases_group_by.setter
+    def cases_group_by(self, arg):
+        self._data['cases_group_by'] = arg
+
+
+class CasesLimitMixin:
+    @property
+    def cases_limit(self):
+        return self._data.get('cases_limit')
+
+    @cases_limit.setter
+    def cases_limit(self, arg):
+        self._data['cases_limit'] = arg
+
+
+class ChangesDateRangeMixin:
+    @property
+    def changes_date_range(self):
+        return self._data.get('changes_date_range')
+
+    @changes_date_range.setter
+    def changes_date_range(self, arg):
+        self._data['changes_date_range'] = arg
+
+
+class ChangesDateRangeFromMixin:
+    @property
+    def changes_date_range_from(self):
+        return self._data.get('changes_date_range_from')
+
+    @changes_date_range_from.setter
+    def changes_date_range_from(self, arg):
+        self._data['changes_date_range_from'] = arg
+
+
+class ChangesDateRangeToMixin:
+    @property
+    def changes_date_range_to(self):
+        return self._data.get('changes_date_range_to')
+
+    @changes_date_range_to.setter
+    def changes_date_range_to(self, arg):
+        self._data['changes_date_range_to'] = arg
+
+
 class ColorBrightMixin:
     @property
     def color_bright(self):
@@ -72,8 +162,7 @@ class CommentMixin:
 class CompletedOnMixin:
     @property
     def completed_on(self):
-        # TODO
-        return self
+        return self._data.get('completed_on')
 
 
 class ConfigMixin:
@@ -98,6 +187,16 @@ class ConfigsMixin:
         return self._data.get('configs')
 
 
+class ContentHideLinksMixin:
+    @property
+    def content_hide_links(self):
+        return self._data.get('content_hide_links')
+
+    @content_hide_links.setter
+    def content_hide_links(self, arg):
+        self._data['content_hide_links'] = arg
+
+
 class CreatedByMixin:
     @property
     def created_by(self):
@@ -107,8 +206,7 @@ class CreatedByMixin:
 class CreatedOnMixin:
     @property
     def created_on(self):
-        # TODO
-        return self
+        return self._data.get('created_on')
 
 
 class CustomStatus1CountMixin:
@@ -203,7 +301,6 @@ class ElapsedMixin:
 
     @elapsed.setter
     def elapsed(self, arg):
-        # TODO Add logic to handle timespan type
         self._data['elapsed'] = str(arg)
 
 
@@ -220,7 +317,6 @@ class EstimateMixin:
 
     @estimate.setter
     def estimate(self, arg):
-        # TODO Add logic to handle timespan type
         self._data['estimate'] = str(arg)
 
 
@@ -347,6 +443,66 @@ class NameMixin:
         self._data['name'] = arg
 
 
+class NotifyUserMixin:
+    @property
+    def notify_user(self):
+        return self._data.get('notify_user')
+
+    @notify_user.setter
+    def notify_user(self, arg):
+        self._data['notify_user'] = arg
+
+
+class NotifyLinkMixin:
+    @property
+    def notify_link(self):
+        return self._data.get('notify_link')
+
+    @notify_link.setter
+    def notify_link(self, arg):
+        self._data['notify_link'] = arg
+
+
+class NotifyLinkRecipientsMixin:
+    @property
+    def notify_link_recipients(self):
+        return self._data.get('notify_link_recipients')
+
+    @notify_link_recipients.setter
+    def notify_link_recipients(self, arg):
+        self._data['notify_link_recipients'] = arg
+
+
+class NotifyAttachmentMixin:
+    @property
+    def notify_attachment(self):
+        return self._data.get('notify_attachment')
+
+    @notify_attachment.setter
+    def notify_attachment(self, arg):
+        self._data['notify_attachment'] = arg
+
+
+class NotifyAttachmentHTMLFormatMixin:
+    @property
+    def notify_attachment_html_format(self):
+        return self._data.get('notify_attachment_html_format')
+
+    @notify_attachment_html_format.setter
+    def notify_attachment_html_format(self, arg):
+        self._data['notify_attachment_html_format'] = arg
+
+
+class NotifyAttachmentPDFFormatMixin:
+    @property
+    def notify_attachment_pdf_format(self):
+        return self._data.get('notify_attachment_pdf_format(')
+
+    @notify_attachment_pdf_format.setter
+    def notify_attachment_pdf_format(self, arg):
+        self._data['notify_attachment_pdf_format'] = arg
+
+
 class ParentIdMixin:
     @property
     def parent_id(self):
@@ -439,7 +595,6 @@ class SectionIdMixin:
     def section_id(self, arg):
         self._data['section_id'] = arg
 
-
     @property
     def short_name(self):
         return self._data.get('short_name')
@@ -448,11 +603,11 @@ class SectionIdMixin:
 class ShortNameMixin:
     @property
     def short_name(self):
-        return self._data.get('name')
+        return self._data.get('short_name')
 
     @short_name.setter
     def short_name(self, arg):
-        self._data['name'] = arg
+        self._data['short_name'] = arg
 
 
 class ShowAnnouncementMixin:
@@ -512,6 +667,46 @@ class SuiteModeMixin:
         if arg not in modes:
             raise ValueError('\'arg\' must be in {}'.format(modes))
         self._data['suite_mode'] = arg
+
+
+class SuitesInclude:
+    @property
+    def suites_include(self):
+        return self._data.get('suite_include')
+
+    @suites_include.setter
+    def suites_include(self, arg):
+        self._data['suites_include'] = arg
+
+
+class SuitesIds:
+    @property
+    def suites_ids(self):
+        return self._data.get('suite_ids')
+
+    @suites_ids.setter
+    def suites_ids(self, arg):
+        self._data['suites_ids'] = arg
+
+
+class SectionsInclude:
+    @property
+    def sections_include(self):
+        return self._data.get('sections_include')
+
+    @sections_include.setter
+    def sections_include(self, arg):
+        self._data['sections_include'] = arg
+
+
+class SectionsIds:
+    @property
+    def sections_ids(self):
+        return self._data.get('sections_ids')
+
+    @sections_ids.setter
+    def sections_ids(self, arg):
+        self._data['sections_ids'] = arg
 
 
 class SystemNameMixin:
@@ -575,8 +770,7 @@ class UpdatedByMixin:
 class UpdatedOnMixin:
     @property
     def updated_on(self):
-        # TODO
-        return self
+        return self._data.get('updated_on')
 
 
 class UrlMixin:
@@ -593,8 +787,3 @@ class VersionMixin:
     @version.setter
     def version(self, arg):
         self._data['version'] = str(arg)
-
-
-
-
-

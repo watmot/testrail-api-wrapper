@@ -2,37 +2,37 @@ from schema import Schema, Or
 
 from testrail.models.base import PostModel
 
-from testrail.models.mixins.fields.assignedto_id import AssignedToIdMixin
-from testrail.models.mixins.fields.blocked_count import BlockedCountMixin
-from testrail.models.mixins.fields.completed_on import CompletedOnMixin
-from testrail.models.mixins.fields.created_by import CreatedByMixin
-from testrail.models.mixins.fields.created_on import CreatedOnMixin
-from testrail.models.mixins.fields.custom_status_1_count import CustomStatus1CountMixin
-from testrail.models.mixins.fields.custom_status_2_count import CustomStatus2CountMixin
-from testrail.models.mixins.fields.custom_status_3_count import CustomStatus3CountMixin
-from testrail.models.mixins.fields.custom_status_4_count import CustomStatus4CountMixin
-from testrail.models.mixins.fields.custom_status_5_count import CustomStatus5CountMixin
-from testrail.models.mixins.fields.custom_status_6_count import CustomStatus6CountMixin
-from testrail.models.mixins.fields.custom_status_7_count import CustomStatus7CountMixin
-from testrail.models.mixins.fields.description import DescriptionMixin
-from testrail.models.mixins.fields.failed_count import FailedCountMixin
-from testrail.models.mixins.fields.id import IdMixin
-from testrail.models.mixins.fields.include_all import IncludeAllMixin
-from testrail.models.mixins.fields.is_completed import IsCompletedMixin
-from testrail.models.mixins.fields.milestone_id import MilestoneIdMixin
-from testrail.models.mixins.fields.name import NameMixin
-from testrail.models.mixins.fields.passed_count import PassedCountMixin
-from testrail.models.mixins.fields.project_id import ProjectIdMixin
-from testrail.models.mixins.fields.retest_count import RetestCountMixin
-from testrail.models.mixins.fields.suite_id import SuiteIdMixin
-from testrail.models.mixins.fields.untested_count import UntestedCountMixin
-from testrail.models.mixins.fields.url import UrlMixin
+from testrail.models.mixins.fields import AssignedToIdMixin
+from testrail.models.mixins.fields import BlockedCountMixin
+from testrail.models.mixins.fields import CompletedOnMixin
+from testrail.models.mixins.fields import CreatedByMixin
+from testrail.models.mixins.fields import CreatedOnMixin
+from testrail.models.mixins.fields import CustomStatus1CountMixin
+from testrail.models.mixins.fields import CustomStatus2CountMixin
+from testrail.models.mixins.fields import CustomStatus3CountMixin
+from testrail.models.mixins.fields import CustomStatus4CountMixin
+from testrail.models.mixins.fields import CustomStatus5CountMixin
+from testrail.models.mixins.fields import CustomStatus6CountMixin
+from testrail.models.mixins.fields import CustomStatus7CountMixin
+from testrail.models.mixins.fields import DescriptionMixin
+from testrail.models.mixins.fields import FailedCountMixin
+from testrail.models.mixins.fields import IdMixin
+from testrail.models.mixins.fields import IncludeAllMixin
+from testrail.models.mixins.fields import IsCompletedMixin
+from testrail.models.mixins.fields import MilestoneIdMixin
+from testrail.models.mixins.fields import NameMixin
+from testrail.models.mixins.fields import PassedCountMixin
+from testrail.models.mixins.fields import ProjectIdMixin
+from testrail.models.mixins.fields import RetestCountMixin
+from testrail.models.mixins.fields import SuiteIdMixin
+from testrail.models.mixins.fields import UntestedCountMixin
+from testrail.models.mixins.fields import UrlMixin
 
-from testrail.models.mixins.methods.get import GetMixin
-from testrail.models.mixins.methods.add import AddMixin
-from testrail.models.mixins.methods.update import UpdateMixin
-from testrail.models.mixins.methods.delete import DeleteMixin
-from testrail.models.mixins.methods.close import CloseMixin
+from testrail.models.mixins.methods import GetMixin
+from testrail.models.mixins.methods import AddMixin
+from testrail.models.mixins.methods import UpdateMixin
+from testrail.models.mixins.methods import DeleteMixin
+from testrail.models.mixins.methods import CloseMixin
 
 
 class RunModel(AssignedToIdMixin, BlockedCountMixin, CompletedOnMixin, CreatedByMixin, CreatedOnMixin,

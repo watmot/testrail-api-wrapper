@@ -2,11 +2,11 @@ from schema import Schema
 
 from testrail.models.base import BaseModel
 
-from testrail.models.mixins.fields.id import IdMixin
-from testrail.models.mixins.fields.is_default import IsDefaultMixin
-from testrail.models.mixins.fields.name import NameMixin
-from testrail.models.mixins.fields.priority import PriorityMixin
-from testrail.models.mixins.fields.short_name import ShortNameMixin
+from testrail.models.mixins.fields import IdMixin
+from testrail.models.mixins.fields import IsDefaultMixin
+from testrail.models.mixins.fields import NameMixin
+from testrail.models.mixins.fields import PriorityMixin
+from testrail.models.mixins.fields import ShortNameMixin
 
 
 class PriorityModel(IdMixin, IsDefaultMixin, NameMixin, PriorityMixin, ShortNameMixin, BaseModel):

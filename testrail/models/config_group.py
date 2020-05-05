@@ -2,14 +2,14 @@ from schema import Schema, Or
 
 from testrail.models.base import PostModel
 
-from testrail.models.mixins.fields.id import IdMixin
-from testrail.models.mixins.fields.name import NameMixin
-from testrail.models.mixins.fields.project_id import ProjectIdMixin
-from testrail.models.mixins.fields.configs import ConfigsMixin
+from testrail.models.mixins.fields import IdMixin
+from testrail.models.mixins.fields import NameMixin
+from testrail.models.mixins.fields import ProjectIdMixin
+from testrail.models.mixins.fields import ConfigsMixin
 
-from testrail.models.mixins.methods.add import AddMixin
-from testrail.models.mixins.methods.update import UpdateMixin
-from testrail.models.mixins.methods.delete import DeleteMixin
+from testrail.models.mixins.methods import AddMixin
+from testrail.models.mixins.methods import UpdateMixin
+from testrail.models.mixins.methods import DeleteMixin
 
 
 class ConfigGroupModel(IdMixin, NameMixin, ProjectIdMixin, ConfigsMixin, DeleteMixin, UpdateMixin, AddMixin, PostModel):
