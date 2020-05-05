@@ -1,8 +1,10 @@
+import pytest
 import random
 
 from testrail import Testrail
 
 
+@pytest.mark.skip()
 class TestEntry:
     def test_get_entries(self, plan, entry):
         entries = Testrail.entries(plan_id=plan.id)

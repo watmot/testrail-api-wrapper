@@ -1,9 +1,10 @@
+import pytest
 import random
 
 from testrail import Testrail
 from testrail.models.test import TestModel
 
-
+@pytest.mark.skip()
 class TestTest:
     def test_get_tests(self, run):
         tests = Testrail.tests(run_id=run.id)
