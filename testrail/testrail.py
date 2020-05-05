@@ -19,6 +19,7 @@ from testrail.collections.milestone import MilestoneCollection
 from testrail.collections.plan import PlanCollection
 from testrail.collections.priority import PriorityCollection
 from testrail.collections.project import ProjectCollection
+from testrail.collections.report import ReportCollection
 from testrail.collections.result_field import ResultFieldCollection
 from testrail.collections.run import RunCollection
 from testrail.collections.section import SectionCollection
@@ -74,6 +75,10 @@ class Testrail:
     @staticmethod
     def projects(is_completed=None, **parameters):
         return ProjectCollection(is_completed=is_completed, **parameters)
+
+    @staticmethod
+    def reports(project_id=None, **parameters):
+        return ReportCollection(project_id=project_id, **parameters)
 
     @staticmethod
     def result_fields(**parameters):
