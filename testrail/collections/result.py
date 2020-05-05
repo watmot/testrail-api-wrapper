@@ -9,7 +9,7 @@ class ResultCollection(GetMixin, BaseCollection):
         'get': 'get_results/{test_id}{query_string}'
     }
 
-    def get(self, test_id=None, **parameters):
+    def get(self, test_id, **parameters):
         query_string = self._parse_query_string(**parameters)
         response = self._get(test_id=test_id, query_string=query_string)
         return response
