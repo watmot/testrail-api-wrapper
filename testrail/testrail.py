@@ -1,4 +1,5 @@
 from testrail.models.case import CaseModel
+from testrail.models.case_field import CaseFieldModel
 from testrail.models.case_type import CaseTypeModel
 from testrail.models.entry import EntryModel
 from testrail.models.milestone import MilestoneModel
@@ -13,6 +14,7 @@ from testrail.models.test import TestModel
 from testrail.models.user import UserModel
 
 from testrail.collections.case import CaseCollection
+from testrail.collections.case_field import CaseFieldCollection
 from testrail.collections.case_type import CaseTypeCollection
 from testrail.collections.entry import EntryCollection
 from testrail.collections.milestone import MilestoneCollection
@@ -39,6 +41,14 @@ class Testrail:
     def cases(project_id=None, suite_id=None, section_id=None, limit=None, offset=None, filter=None, **parameters):
         return CaseCollection(project_id=project_id, suite_id=suite_id, section_id=section_id, limit=limit,
                               offset=offset, filter=filter, **parameters)
+
+    @staticmethod
+    def case_field():
+        return CaseFieldModel()
+
+    @staticmethod
+    def case_fields(**parameters):
+        return CaseFieldCollection(**parameters)
 
     @staticmethod
     def case_types():

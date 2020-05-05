@@ -51,6 +51,6 @@ class CaseFieldModel(DescriptionMixin, DisplayOrderMixin, IdMixin, LabelMixin, N
         Optional('template_ids'): list
     })
 
-    def add(self, section_id):
-        response = self._add(section_id=section_id)
+    def add(self):
+        response = self._add()
         return response
