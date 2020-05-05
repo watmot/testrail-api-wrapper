@@ -137,41 +137,10 @@ class Testrail:
     def users(**parameters):
         return UserCollection(**parameters)
 
-    # @staticmethod
-    # def entry(plan_id=None, entry_id=None):
-    #     entry = None
-    #
-    #     if plan_id and entry_id:
-    #         plan = PlanModel(plan_id=plan_id)
-    #         try:
-    #             entries = plan['entries']
-    #             for entry in entries:
-    #                 if entry['id'] == entry_id:
-    #                     entry = e
-    #         except KeyError as ex:
-    #             logging.warning(ex)
-    #     elif not plan_id or not entry_id:
-    #         logging.warning(msg='Need both plan_id and entry_id.')
-    #
-    #     return EntryModel(response=entry)
-    #
-    # @staticmethod
-    # def entries(plan_id=None):
-    #     entries = None
-    #
-    #     if plan_id:
-    #         plan = PlanModel(plan_id=plan_id)
-    #         try:
-    #             entries = plan['entries']
-    #         except KeyError as ex:
-    #             logging.warning(ex)
-    #
-    #     return EntryCollection(response=entries)
-    #
-    # @staticmethod
-    # def test(test_id=None):
-    #     return TestModel(test_id=test_id)
-    #
-    # @staticmethod
-    # def tests(run_id=None, **parameters):
-    #     return TestCollection(run_id=run_id, params=request_params(**parameters))
+    @staticmethod
+    def test(test_id=None):
+        return TestModel(test_id=test_id)
+
+    @staticmethod
+    def tests(run_id=None, **parameters):
+        return TestCollection(run_id=run_id, **parameters)

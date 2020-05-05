@@ -251,6 +251,30 @@ class CustomStatus7CountMixin:
         return self._data.get('custom_status7_count')
 
 
+class CustomDescriptionMixin:
+    @property
+    def custom_description(self):
+        return self._data.get('custom_description')
+
+
+class CustomPreconditionMixin:
+    @property
+    def custom_precondition(self):
+        return self._data.get('custom_precondition')
+
+
+class CustomStepsMixin:
+    @property
+    def custom_steps(self):
+        return self._data.get('custom_steps')
+
+
+class CustomStepsSeparatedMixin:
+    @property
+    def custom_steps_separated(self):
+        return self._data.get('custom_steps_separated')
+
+
 class DefectsMixin:
     @property
     def defects(self):
