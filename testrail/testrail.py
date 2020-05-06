@@ -130,8 +130,8 @@ class Testrail:
         return TemplateCollection(project_id=project_id, **parameters)
 
     @staticmethod
-    def user(user_id=None):
-        return UserModel(user_id=user_id) if user_id else UserModel()
+    def user(user_id=None, email=None):
+        return UserModel(user_id=user_id, email=email) if user_id else UserModel()
 
     @staticmethod
     def users(**parameters):

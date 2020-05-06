@@ -39,8 +39,9 @@ class GetMixin:
         if parameters:
             self._get(**parameters)
 
-    def _get(self, **parameters):
-        response = TestrailRequest.get(uri=self.ENDPOINTS['get'].format(**parameters))
+    def _get(self, field=None, **parameters):
+        key = f'get_{field}' if field else 'get'
+        response = TestrailRequest.get(uri=self.ENDPOINTS[key].format(**parameters))
         response_json = response.json()
         self._update_data(response_json)
         return response
