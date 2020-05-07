@@ -11,5 +11,5 @@ class UserCollection(GetMixin, BaseCollection):
 
     def get(self, **parameters):
         query_string = self._parse_query_string(**parameters)
-        response = self._get(query_string=query_string)
+        response = self._get(endpoint_key='get', query_string=query_string)
         return response

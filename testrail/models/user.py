@@ -23,10 +23,11 @@ class UserModel(EmailMixin, IdMixin, IsActiveMixin, NameMixin, GetMixin, BaseMod
         'name': str,
     })
 
-    def get(self, user_id):
-        response = self._get(user_id=user_id)
-        return response
-
-    def get_by_email(self, email):
-        response = self._get(field='email', email=email)
-        return response
+    def get(self, user_id=None, email=None):
+        if user_id:
+            response = self._get(user_id=user_id)
+            return response
+        if email:
+            response = self._get(endpoint_key='get_email', email=email)
+            return response
+        raise Exception
