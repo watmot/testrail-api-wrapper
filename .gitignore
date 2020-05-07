@@ -25,7 +25,7 @@ lib64/
 parts/
 sdist/
 var/
-testrail_venv/
+venv/
 wheels/
 pip-wheel-metadata/
 share/python-wheels/
@@ -33,6 +33,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.env
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

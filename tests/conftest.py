@@ -10,7 +10,7 @@ PROJECT
 """
 @pytest.fixture(scope='session')
 def test_project_data():
-    with open('tests/config/test_project_data.json') as stream:
+    with open('config/test_project_data.json') as stream:
         data = json.load(stream)
 
     return data
@@ -43,7 +43,7 @@ SUITE
 """
 @pytest.fixture(scope='session')
 def test_suite_data():
-    with open('tests/config/test_suite_data.json') as stream:
+    with open('config/test_suite_data.json') as stream:
         data = json.load(stream)
 
     return data
@@ -74,7 +74,7 @@ SECTION
 """
 @pytest.fixture(scope='session')
 def test_section_data():
-    with open('tests/config/test_section_data.json') as stream:
+    with open('config/test_section_data.json') as stream:
         data = json.load(stream)
 
     return data
@@ -106,7 +106,7 @@ CASE
 """
 @pytest.fixture(scope='session')
 def test_case_data():
-    with open('tests/config/test_case_data.json') as stream:
+    with open('config/test_case_data.json') as stream:
         data = json.load(stream)
 
     return data
@@ -136,7 +136,7 @@ MILESTONE
 """
 @pytest.fixture(scope='session')
 def test_milestone_data():
-    with open('tests/config/test_milestone_data.json') as stream:
+    with open('config/test_milestone_data.json') as stream:
         data = json.load(stream)
 
     return data
@@ -169,7 +169,7 @@ PLAN
 """
 @pytest.fixture(scope='session')
 def test_plan_data():
-    with open('tests/config/test_plan_data.json') as stream:
+    with open('config/test_plan_data.json') as stream:
         data = json.load(stream)
 
     return data
@@ -200,7 +200,7 @@ RUN
 """
 @pytest.fixture(scope='session')
 def test_run_data():
-    with open('tests/config/test_run_data.json') as stream:
+    with open('config/test_run_data.json') as stream:
         data = json.load(stream)
 
     return data
@@ -234,7 +234,7 @@ ENTRY
 
 @pytest.fixture(scope='session')
 def test_entry_data():
-    with open('tests/config/test_entry_data.json') as stream:
+    with open('config/test_entry_data.json') as stream:
         data = json.load(stream)
 
     return data
