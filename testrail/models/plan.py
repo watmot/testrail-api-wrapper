@@ -15,6 +15,7 @@ from testrail.models.mixins.fields import CustomStatus5CountMixin
 from testrail.models.mixins.fields import CustomStatus6CountMixin
 from testrail.models.mixins.fields import CustomStatus7CountMixin
 from testrail.models.mixins.fields import DescriptionMixin
+from testrail.models.mixins.fields import EntriesMixin
 from testrail.models.mixins.fields import FailedCountMixin
 from testrail.models.mixins.fields import IdMixin
 from testrail.models.mixins.fields import IsCompletedMixin
@@ -36,9 +37,9 @@ from testrail.models.mixins.methods import CloseMixin
 class PlanModel(AssignedToIdMixin, BlockedCountMixin, CompletedOnMixin, CreatedByMixin, CreatedOnMixin,
                 CustomStatus1CountMixin, CustomStatus2CountMixin, CustomStatus3CountMixin, CustomStatus4CountMixin,
                 CustomStatus5CountMixin, CustomStatus6CountMixin, CustomStatus7CountMixin, DescriptionMixin,
-                FailedCountMixin, IdMixin, IsCompletedMixin, MilestoneIdMixin, NameMixin, PassedCountMixin,
-                ProjectIdMixin, RetestCountMixin, UntestedCountMixin, UrlMixin, DeleteMixin, CloseMixin, UpdateMixin,
-                AddMixin, GetMixin, PostModel):
+                EntriesMixin, FailedCountMixin, IdMixin, IsCompletedMixin, MilestoneIdMixin, NameMixin,
+                PassedCountMixin, ProjectIdMixin, RetestCountMixin, UntestedCountMixin, UrlMixin, DeleteMixin,
+                CloseMixin, UpdateMixin, AddMixin, GetMixin, PostModel):
 
     ENDPOINTS = {
         'get': 'get_plan/{plan_id}',
