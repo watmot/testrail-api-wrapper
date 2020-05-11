@@ -30,3 +30,4 @@ class BaseCollection(MutableSequence):
 
     def insert(self, index, value):
         self._data.insert(index, value)
+
