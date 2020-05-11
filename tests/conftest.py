@@ -160,7 +160,7 @@ def milestone(request, project, test_milestone_data):
     def delete():
         try:
             alive = Testrail.milestone()
-            alive.get(case_id=case.id)
+            alive.get(milestone_id=milestone.id)
             alive.delete()
         except requests.HTTPError:
             pass

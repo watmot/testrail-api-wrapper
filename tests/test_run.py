@@ -5,12 +5,14 @@ from testrail import Testrail
 
 class TestRun:
     def test_get_runs(self, project, run):
-        runs = Testrail.runs(project_id=project.id)
+        runs = Testrail.runs()
+        runs.get(project_id=project.id)
         index = random.randint(0, len(runs)-1)
         assert runs[index].id
 
     def test_get_run(self, run):
-        get_run = Testrail.run(run_id=run.id)
+        get_run = Testrail.run()
+        get_run.get(run_id=run.id)
         assert get_run.id
 
     def test_add_run(self, run):

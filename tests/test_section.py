@@ -5,13 +5,14 @@ from testrail import Testrail
 
 class TestSection:
     def test_get_sections(self, project, suite, section):
-        sections = Testrail.sections(project_id=project.id, suite_id=suite.id)
+        sections = Testrail.sections()
+        sections.get(project_id=project.id, suite_id=suite.id)
 
         assert sections[0].id
 
     def test_get_section(self, section):
-        get_section = Testrail.section(section_id=section.id)
-
+        get_section = Testrail.section()
+        get_section.get(section_id=section.id)
         assert get_section.id
 
     def test_add_section(self, section):

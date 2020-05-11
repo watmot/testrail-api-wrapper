@@ -5,13 +5,15 @@ from testrail import Testrail
 
 class TestPlan:
     def test_get_plans(self, project, plan):
-        plans = Testrail.plans(project_id=project.id)
+        plans = Testrail.plans()
+        plans.get(project_id=project.id)
         index = random.randint(0, len(plans)-1)
 
         assert plans[index].id
 
     def test_get_plan(self, plan):
-        get_plan = Testrail.plan(plan_id=plan.id)
+        get_plan = Testrail.plan()
+        get_plan.get(plan_id=plan.id)
 
         assert get_plan.id
 

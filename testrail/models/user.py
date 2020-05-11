@@ -28,5 +28,5 @@ class UserModel(EmailMixin, IdMixin, IsActiveMixin, NameMixin, GetMixin, BaseMod
         return response
 
     def get_by_email(self, email=None):
-        response = self._get(email=email)
+        response = self._get(endpoint_key='get_email', email=email)
         return response

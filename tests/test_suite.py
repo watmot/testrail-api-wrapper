@@ -6,13 +6,15 @@ from testrail.models.suite import SuiteModel
 
 class TestSuite:
     def test_get_suites(self, project, suite):
-        suites = Testrail.suites(project_id=project.id)
+        suites = Testrail.suites()
+        suites.get(project_id=project.id)
         index = random.randint(0, len(suites)-1)
 
         assert isinstance(suites[index], SuiteModel)
 
     def test_get_suite(self, suite):
-        get_suite = Testrail.suite(suite_id=suite.id)
+        get_suite = Testrail.suite()
+        get_suite.get(suite_id=suite.id)
 
         assert isinstance(get_suite, SuiteModel)
 

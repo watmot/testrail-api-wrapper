@@ -5,12 +5,14 @@ from testrail import Testrail
 
 class TestMilestone:
     def test_get_milestones(self, project, milestone):
-        milestones = Testrail.milestones(project_id=project.id)
+        milestones = Testrail.milestones()
+        milestones.get(project_id=project.id)
         index = random.randint(0, len(milestones)-1)
         assert milestones[index].id
 
     def test_get_milestone(self, milestone):
-        get_milestone = Testrail.milestone(milestone_id=milestone.id)
+        get_milestone = Testrail.milestone()
+        get_milestone.get(milestone_id=milestone.id)
 
         assert get_milestone.id
 

@@ -6,6 +6,7 @@ from testrail import Testrail
 class TestCase:
     def test_get_case_fields(self):
         cases = Testrail.case_fields()
+        cases.get()
         index = random.randint(0, len(cases)-1)
 
         assert cases[index].id

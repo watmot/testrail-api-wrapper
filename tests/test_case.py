@@ -5,13 +5,15 @@ from testrail import Testrail
 
 class TestCase:
     def test_get_cases(self, suite, case):
-        cases = Testrail.cases(project_id=suite.project_id, suite_id=suite.id)
+        cases = Testrail.cases()
+        cases.get(project_id=suite.project_id, suite_id=suite.id)
         index = random.randint(0, len(cases)-1)
 
         assert cases[index].id
 
     def test_get_case(self, case):
-        get_case = Testrail.case(case_id=case.id)
+        get_case = Testrail.case()
+        get_case.get(case_id=case.id)
 
         assert get_case.id
 

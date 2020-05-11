@@ -6,11 +6,13 @@ from testrail import Testrail
 class TestProject:
     def test_get_projects(self):
         projects = Testrail.projects()
+        projects.get()
         index = random.randint(0, len(projects)-1)
         assert projects[index].id
 
     def test_get_project(self, project):
-        test_project = Testrail.project(project_id=project.id)
+        test_project = Testrail.project()
+        test_project.get(project_id=project.id)
 
         assert test_project.id
 
@@ -18,7 +20,6 @@ class TestProject:
         assert project.id
 
     def test_update_project(self, project, test_project_data):
-        print(project.__dict__)
         updated_project_data = test_project_data['updated']
 
         project.is_completed = updated_project_data['is_completed']
