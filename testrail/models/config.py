@@ -33,3 +33,15 @@ class ConfigModel(GroupIdMixin, IdMixin, NameMixin, DeleteMixin, UpdateMixin, Ad
         'id': int,
         'name': str
     })
+
+    def add(self, config_group_id):
+        response = self._add(config_group_id=config_group_id)
+        return response
+
+    def update(self):
+        response = self._add(config_id=self.id)
+        return response
+
+    def delete(self):
+        response = self._delete(config_id=self.id)
+        return response

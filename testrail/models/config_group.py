@@ -36,3 +36,15 @@ class ConfigGroupModel(IdMixin, NameMixin, ProjectIdMixin, ConfigsMixin, DeleteM
         'project_id': int
     })
 
+    def add(self, project_id):
+        response = self._add(project_id=project_id)
+        return response
+
+    def update(self):
+        response = self._add(config_group_id=self.id)
+        return response
+
+    def delete(self):
+        response = self._delete(config_group_id=self.id)
+        return response
+
