@@ -2,11 +2,6 @@ from testrail.request import TestrailRequest
 
 
 class GetMixin:
-    def __init__(self, new=False, **parameters):
-        super().__init__()
-        if not new:
-            self.get(**parameters)
-
     @staticmethod
     def _parse_query_string(**kwargs):
         query_string = ''

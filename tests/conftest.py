@@ -20,7 +20,7 @@ def test_project_data():
 def project(request, test_project_data):
     new_project_data = test_project_data['new']
 
-    project = Testrail.project(new=True)
+    project = Testrail.project()
     project.name = new_project_data['name']
     project.announcement = new_project_data['announcement']
     project.show_announcement = new_project_data['show_announcement']
@@ -29,7 +29,8 @@ def project(request, test_project_data):
 
     def delete():
         try:
-            alive = Testrail.project(project_id=project.id)
+            alive = Testrail.project()
+            alive.get(project_id=project.id)
             alive.delete()
         except requests.HTTPError:
             pass
@@ -53,14 +54,15 @@ def test_suite_data():
 def suite(request, project, test_suite_data):
     new_suite_data = test_suite_data['new']
 
-    suite = Testrail.suite(new=True)
+    suite = Testrail.suite()
     suite.name = new_suite_data['name']
     suite.description = new_suite_data['description']
     suite.add(project_id=project.id)
 
     def delete():
         try:
-            alive = Testrail.suite(suite_id=suite.id)
+            alive = Testrail.suite()
+            alive.get(suite_id=suite.id)
             alive.delete()
         except requests.HTTPError:
             pass
@@ -84,7 +86,7 @@ def test_section_data():
 def section(request, suite, test_section_data):
     new_section_data = test_section_data['new']
 
-    section = Testrail.section(new=True)
+    section = Testrail.section()
     section.name = new_section_data['name']
     section.suite_id = suite.id
     section.description = new_section_data['description']
@@ -92,7 +94,8 @@ def section(request, suite, test_section_data):
 
     def delete():
         try:
-            alive = Testrail.section(section_id=section.id)
+            alive = Testrail.section()
+            alive.get(section_id=section.id)
             alive.delete()
         except requests.HTTPError:
             pass
@@ -116,13 +119,14 @@ def test_case_data():
 def case(request, section, test_case_data):
     new_case_data = test_case_data['new']
 
-    case = Testrail.case(new=True)
+    case = Testrail.case()
     case.title = new_case_data['title']
     case.add(section_id=section.id)
 
     def delete():
         try:
-            alive = Testrail.case(case_id=case.id)
+            alive = Testrail.case()
+            alive.get(case_id=case.id)
             alive.delete()
         except requests.HTTPError:
             pass
@@ -146,7 +150,7 @@ def test_milestone_data():
 def milestone(request, project, test_milestone_data):
     new_milestone_data = test_milestone_data['new']
 
-    milestone = Testrail.milestone(new=True)
+    milestone = Testrail.milestone()
     milestone.name = new_milestone_data['name']
     milestone.description = new_milestone_data['description']
     milestone.due_on = new_milestone_data['due_on']
@@ -155,7 +159,8 @@ def milestone(request, project, test_milestone_data):
 
     def delete():
         try:
-            alive = Testrail.milestone(milestone_id=milestone.id)
+            alive = Testrail.milestone()
+            alive.get(case_id=case.id)
             alive.delete()
         except requests.HTTPError:
             pass
@@ -179,14 +184,15 @@ def test_plan_data():
 def plan(request, project, test_plan_data):
     new_plan_data = test_plan_data['new']
 
-    plan = Testrail.plan(new=True)
+    plan = Testrail.plan()
     plan.name = new_plan_data['name']
     plan.description = new_plan_data['description']
     plan.add(project_id=project.id)
 
     def delete():
         try:
-            alive = Testrail.plan(plan_id=plan.id)
+            alive = Testrail.plan()
+            alive.get(plan_id=plan.id)
             alive.delete()
         except requests.HTTPError:
             pass
@@ -210,7 +216,7 @@ def test_run_data():
 def run(request, project, suite, case, test_run_data):
     new_run_data = test_run_data['new']
 
-    run = Testrail.run(new=True)
+    run = Testrail.run()
     run.suite_id = suite.id
     run.name = new_run_data['name']
     run.description = new_run_data['description']
@@ -218,7 +224,8 @@ def run(request, project, suite, case, test_run_data):
 
     def delete():
         try:
-            alive = Testrail.run(run_id=run.id)
+            alive = Testrail.run()
+            alive.get(run_id=run.id)
             alive.delete()
         except requests.HTTPError:
             pass
@@ -244,7 +251,7 @@ def test_entry_data():
 def entry(request, plan, run, test_entry_data):
     new_entry_data = test_entry_data['new']
 
-    entry = Testrail.entry(new=True)
+    entry = Testrail.entry()
     entry.suite_id = new_entry_data['suite_id']
     entry.name = new_entry_data['name']
     entry.description = new_entry_data['description']
@@ -253,7 +260,8 @@ def entry(request, plan, run, test_entry_data):
 
     def delete():
         try:
-            alive = Testrail.entry(plan_id=plan.id, entry_id=entry.id)
+            alive = Testrail.entry()
+            alive.get(plan_id=plan.id, entry_id=entry.id)
             alive.delete()
         except requests.HTTPError:
             pass

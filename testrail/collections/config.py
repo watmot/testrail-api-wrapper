@@ -2,6 +2,6 @@ from testrail.collections.base import BaseCollection
 from testrail.models.config import ConfigModel
 
 
-class ProjectCollection(BaseCollection):
+class ConfigCollection(BaseCollection):
     MODEL = ConfigModel
 

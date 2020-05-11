@@ -38,11 +38,6 @@ class DeleteMixin(BaseMethodMixin):
 
 
 class GetMixin(BaseMethodMixin):
-    def __init__(self, new=False, data=None, **parameters):
-        super().__init__(data=data)
-        if not new and not data:
-            self.get(**parameters)
-
     def _get(self, endpoint_key='get', **parameters):
         response = TestrailRequest.get(uri=self.ENDPOINTS[endpoint_key].format(**parameters))
         response_json = response.json()
