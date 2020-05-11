@@ -6,9 +6,9 @@ from testrail import Testrail
 class TestProject:
     def test_get_projects(self):
         projects = Testrail.projects()
-        projects.get()
+        projects.get(is_completed=1)
         index = random.randint(0, len(projects)-1)
-        assert projects[index].id
+        assert projects[index].is_completed
 
     def test_get_project(self, project):
         test_project = Testrail.project()

@@ -9,7 +9,6 @@ class ProjectCollection(GetMixin, BaseCollection):
         'get': 'get_projects'
     }
 
-    def get(self, **parameters):
-        query_string = self._parse_query_string(**parameters)
-        response = self._get(query_string=query_string)
+    def get(self, **query_params):
+        response = self._get(query_string_dict=query_params)
         return response

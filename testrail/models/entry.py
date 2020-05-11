@@ -1,7 +1,7 @@
 from schema import Schema, Or
 
 from testrail.models.base import PostModel
-from testrail.models.plan import Plan
+from testrail.models.plan import PlanModel
 
 from testrail.models.mixins.fields import SuiteIdMixin
 from testrail.models.mixins.fields import NameMixin
@@ -56,7 +56,7 @@ class EntryModel(SuiteIdMixin, NameMixin, DescriptionMixin, AssignedToIdMixin, C
     })
 
     def get(self, plan_id, entry_id):
-        plan = Plan()
+        plan = PlanModel()
         plan.get(plan_id=plan_id)
         for entry in plan.entries:
             if entry['id'] == entry_id:

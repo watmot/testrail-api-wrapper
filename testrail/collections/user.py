@@ -6,10 +6,9 @@ from testrail.models.user import UserModel
 class UserCollection(GetMixin, BaseCollection):
     MODEL = UserModel
     ENDPOINTS = {
-        'get': 'get_users{query_string}'
+        'get': 'get_users'
     }
 
-    def get(self, **parameters):
-        query_string = self._parse_query_string(**parameters)
-        response = self._get(endpoint_key='get', query_string=query_string)
+    def get(self, **query_params):
+        response = self._get(endpoint_key='get', query_string_dict=query_params)
         return response

@@ -6,10 +6,9 @@ from testrail.models.suite import SuiteModel
 class SuiteCollection(GetMixin, BaseCollection):
     MODEL = SuiteModel
     ENDPOINTS = {
-        'get': 'get_suites/{project_id}{query_string}'
+        'get': 'get_suites/{project_id}'
     }
 
-    def get(self, project_id, **parameters):
-        query_string = self._parse_query_string(**parameters)
-        response = self._get(project_id=project_id, query_string=query_string)
+    def get(self, project_id, **query_params):
+        response = self._get(project_id=project_id, query_string_dict=query_params)
         return response

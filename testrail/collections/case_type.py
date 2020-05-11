@@ -6,11 +6,10 @@ from testrail.models.case_type import CaseTypeModel
 class CaseTypeCollection(GetMixin, BaseCollection):
     MODEL = CaseTypeModel
     ENDPOINTS = {
-        'get': 'get_case_types{query_string}'
+        'get': 'get_case_types'
     }
 
-    def get(self, **parameters):
-        query_string = self._parse_query_string(**parameters)
-        response = self._get(query_string=query_string)
+    def get(self, **query_params):
+        response = self._get(query_string_dict=query_params)
         return response
 

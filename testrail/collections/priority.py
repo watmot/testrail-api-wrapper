@@ -6,10 +6,8 @@ from testrail.models.priority import PriorityModel
 class PriorityCollection(GetMixin, BaseCollection):
     MODEL = PriorityModel
     ENDPOINTS = {
-        'get': 'get_priorities{query_string}'
+        'get': 'get_priorities'
     }
 
-    def get(self, **parameters):
-        query_string = self._parse_query_string(**parameters)
-        response = self._get(query_string=query_string)
-        return response
+    def get(self, **query_params):
+        response = self._get(query_string_dict=query_params)

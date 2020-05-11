@@ -10,8 +10,11 @@ class GetMixin:
                 query_string += f'&{k}={v}'
         return query_string
 
-    def _get(self, endpoint_key='get', **parameters):
-        response = TestrailRequest.get(uri=self.ENDPOINTS[endpoint_key].format(**parameters))
+    def _get(self, endpoint_key='get', query_string_dict=None, **parameters):
+        endpoint = self.ENDPOINTS[endpoint_key].format(**parameters)
+        query_string = self._parse_query_string(**query_string_dict)
+
+        response = TestrailRequest.get(uri=endpoint+query_string)
         response_json = response.json()
         self._data = [self.MODEL(data=i) for i in response_json] if response_json else []
         return response
@@ -28,4 +31,3 @@ class GetMixin:
         self._data = [self.MODEL(data=i) for i in response_json]
 
         return response
-

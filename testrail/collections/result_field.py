@@ -6,10 +6,9 @@ from testrail.models.result_field import ResultFieldModel
 class ResultFieldCollection(GetMixin, BaseCollection):
     MODEL = ResultFieldModel
     ENDPOINTS = {
-        'get': 'get_result_fields{query_string}'
+        'get': 'get_result_fields'
     }
 
-    def get(self, **parameters):
-        query_string = self._parse_query_string(**parameters)
-        response = self._get(query_string=query_string)
+    def get(self, **query_params):
+        response = self._get(query_string_dict=query_params)
         return response

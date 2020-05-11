@@ -7,7 +7,7 @@ class BaseCollection(MutableSequence):
     MODEL = None
     ENDPOINTS = None
 
-    def __init__(self, **parameters):
+    def __init__(self):
         self._data = []
 
     def _check_item(self, item):

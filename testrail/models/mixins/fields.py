@@ -331,7 +331,7 @@ class ElapsedMixin:
 class EmailMixin:
     @property
     def email(self):
-        return self._data.get('email'
+        return self._data.get('email')
 
 
 class EntriesMixin:
