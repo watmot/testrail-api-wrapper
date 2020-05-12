@@ -1,14 +1,14 @@
-from schema import Schema, Optional, Or
+from schema import Schema, Optional, Or, Regex
 
 from testrail.models.base import PostModel
 
 from testrail.models.mixins.fields import CreatedByMixin
 from testrail.models.mixins.fields import CreatedOnMixin
+from testrail.models.mixins.fields import DisplayOrderMixin
 from testrail.models.mixins.fields import EstimateMixin
 from testrail.models.mixins.fields import EstimateForecastMixin
 from testrail.models.mixins.fields import IdMixin
 from testrail.models.mixins.fields import MilestoneIdMixin
-from testrail.models.mixins.fields import ProjectIdMixin
 from testrail.models.mixins.fields import PriorityIdMixin
 from testrail.models.mixins.fields import RefsMixin
 from testrail.models.mixins.fields import SectionIdMixin
@@ -25,10 +25,9 @@ from testrail.models.mixins.methods import UpdateMixin
 from testrail.models.mixins.methods import DeleteMixin
 
 
-class CaseModel(CreatedByMixin, CreatedOnMixin, EstimateMixin, EstimateForecastMixin, IdMixin, MilestoneIdMixin,
-                ProjectIdMixin, PriorityIdMixin, RefsMixin, SectionIdMixin, SuiteIdMixin, TemplateIdMixin, TitleMixin,
-                TypeIdMixin, UpdatedByMixin, UpdatedOnMixin,  DeleteMixin, UpdateMixin, AddMixin, GetMixin, PostModel):
-
+class CaseModel(CreatedByMixin, CreatedOnMixin, DisplayOrderMixin, EstimateMixin, EstimateForecastMixin, IdMixin,
+                MilestoneIdMixin, PriorityIdMixin, RefsMixin, SectionIdMixin, SuiteIdMixin, TemplateIdMixin, TitleMixin,
+                TypeIdMixin, UpdatedByMixin, UpdatedOnMixin, DeleteMixin, UpdateMixin, AddMixin, GetMixin, PostModel):
     ENDPOINTS = {
         'get': 'get_case/{case_id}',
         'add': 'add_case/{section_id}',
@@ -60,10 +59,6 @@ class CaseModel(CreatedByMixin, CreatedOnMixin, EstimateMixin, EstimateForecastM
     SCHEMA = Schema({
         'created_by': int,
         'created_on': int,
-        'custom_description': Or(str, None),
-        'custom_precondition': Or(str, None),
-        'custom_steps': Or(str, None),
-        Optional('custom_steps_separated', default=[]): list,
         'display_order': int,
         'estimate': Or(str, None),
         'estimate_forecast': Or(str, None),
@@ -77,7 +72,8 @@ class CaseModel(CreatedByMixin, CreatedOnMixin, EstimateMixin, EstimateForecastM
         'title': str,
         'type_id': int,
         'updated_by': int,
-        'updated_on': int
+        'updated_on': int,
+        Optional(Regex(r'^custom_')): object
     })
 
     def get(self, case_id):

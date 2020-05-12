@@ -60,11 +60,6 @@ class AttachmentModel(CreatedByMixin, CreatedOnMixin, EstimateMixin, EstimateFor
     SCHEMA = Schema({
         'created_by': int,
         'created_on': int,
-        'custom_description': Or(str, None),
-        'custom_precondition': Or(str, None),
-        'custom_steps': Or(str, None),
-        Optional('custom_steps_separated', default=[]): list,
-        'display_order': int,
         'estimate': Or(str, None),
         'estimate_forecast': Or(str, None),
         'id': int,
@@ -77,7 +72,12 @@ class AttachmentModel(CreatedByMixin, CreatedOnMixin, EstimateMixin, EstimateFor
         'title': str,
         'type_id': int,
         'updated_by': int,
-        'updated_on': int
+        'updated_on': int,
+        Optional('display_order'): int,
+        Optional('custom_description'): str,
+        Optional('custom_precondition'): str,
+        Optional('custom_steps'): str,
+        Optional('custom_steps_separated', default=[]): list,
     })
 
     def get(self, case_id):
