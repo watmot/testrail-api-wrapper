@@ -1,13 +1,11 @@
-from schema import Schema, Optional, Or
+from schema import Schema, Optional, Or, Regex
 
 from testrail.models.base import BaseModel
-
 from testrail.models.mixins.fields import (AssignedToIdMixin, CaseIdMixin, CustomDescriptionMixin,
                                            CustomPreconditionMixin, CustomStepsMixin, CustomStepsSeparatedMixin,
                                            EstimateMixin, EstimateForecastMixin, IdMixin, MilestoneIdMixin,
                                            PriorityIdMixin, RefsMixin, RunIdMixin,StatusIdMixin, TitleMixin,
                                            TypeIdMixin)
-
 from testrail.models.mixins.methods import GetMixin
 
 
@@ -21,10 +19,6 @@ class TestModel(AssignedToIdMixin, CaseIdMixin, CustomDescriptionMixin, CustomPr
     SCHEMA = Schema({
         'assignedto_id': Or(int, None),
         'case_id': int,
-        Optional('custom_description'): Or(str, None),
-        Optional('custom_precondition'): Or(str, None),
-        Optional('custom_steps'): Or(str, None),
-        Optional('custom_steps_separated', default=[]): list,
         'estimate': Or(str, None),
         'estimate_forecast': Or(str, None),
         'id': int,
@@ -34,7 +28,8 @@ class TestModel(AssignedToIdMixin, CaseIdMixin, CustomDescriptionMixin, CustomPr
         'run_id': int,
         'status_id': int,
         'title': str,
-        'type_id': int
+        'type_id': int,
+        Optional(Regex(r'^custom_')): object
     })
 
     def get(self, test_id):

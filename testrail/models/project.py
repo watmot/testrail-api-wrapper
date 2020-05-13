@@ -1,18 +1,9 @@
 from schema import Schema, Or
 
 from testrail.models.base import PostModel
-from testrail.models.mixins.fields import AnnouncementMixin
-from testrail.models.mixins.fields import CompletedOnMixin
-from testrail.models.mixins.fields import IdMixin
-from testrail.models.mixins.fields import IsCompletedMixin
-from testrail.models.mixins.fields import NameMixin
-from testrail.models.mixins.fields import ShowAnnouncementMixin
-from testrail.models.mixins.fields import SuiteModeMixin
-from testrail.models.mixins.fields import UrlMixin
-from testrail.models.mixins.methods import GetMixin
-from testrail.models.mixins.methods import AddMixin
-from testrail.models.mixins.methods import UpdateMixin
-from testrail.models.mixins.methods import DeleteMixin
+from testrail.models.mixins.fields import (AnnouncementMixin, CompletedOnMixin, IdMixin, IsCompletedMixin, NameMixin,
+                                           ShowAnnouncementMixin, SuiteModeMixin, UrlMixin)
+from testrail.models.mixins.methods import GetMixin, AddMixin, UpdateMixin, DeleteMixin
 
 
 class ProjectModel(AnnouncementMixin, CompletedOnMixin, IdMixin, IsCompletedMixin, NameMixin, ShowAnnouncementMixin,

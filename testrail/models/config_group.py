@@ -1,15 +1,8 @@
 from schema import Schema, Or
 
 from testrail.models.base import PostModel
-
-from testrail.models.mixins.fields import IdMixin
-from testrail.models.mixins.fields import NameMixin
-from testrail.models.mixins.fields import ProjectIdMixin
-from testrail.models.mixins.fields import ConfigsMixin
-
-from testrail.models.mixins.methods import AddMixin
-from testrail.models.mixins.methods import UpdateMixin
-from testrail.models.mixins.methods import DeleteMixin
+from testrail.models.mixins.fields import IdMixin, NameMixin, ProjectIdMixin, ConfigsMixin
+from testrail.models.mixins.methods import AddMixin, UpdateMixin, DeleteMixin
 
 
 class ConfigGroupModel(IdMixin, NameMixin, ProjectIdMixin, ConfigsMixin, DeleteMixin, UpdateMixin, AddMixin, PostModel):
@@ -30,7 +23,7 @@ class ConfigGroupModel(IdMixin, NameMixin, ProjectIdMixin, ConfigsMixin, DeleteM
     }
 
     SCHEMA = Schema({
-        'configs': Or(list, None),
+        'configs': list,
         'id': int,
         'name': str,
         'project_id': int

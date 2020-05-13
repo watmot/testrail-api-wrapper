@@ -1,28 +1,11 @@
 from schema import Schema, Optional, Or, Regex
 
 from testrail.models.base import PostModel
-
-from testrail.models.mixins.fields import CreatedByMixin
-from testrail.models.mixins.fields import CreatedOnMixin
-from testrail.models.mixins.fields import DisplayOrderMixin
-from testrail.models.mixins.fields import EstimateMixin
-from testrail.models.mixins.fields import EstimateForecastMixin
-from testrail.models.mixins.fields import IdMixin
-from testrail.models.mixins.fields import MilestoneIdMixin
-from testrail.models.mixins.fields import PriorityIdMixin
-from testrail.models.mixins.fields import RefsMixin
-from testrail.models.mixins.fields import SectionIdMixin
-from testrail.models.mixins.fields import SuiteIdMixin
-from testrail.models.mixins.fields import TemplateIdMixin
-from testrail.models.mixins.fields import TitleMixin
-from testrail.models.mixins.fields import TypeIdMixin
-from testrail.models.mixins.fields import UpdatedByMixin
-from testrail.models.mixins.fields import UpdatedOnMixin
-
-from testrail.models.mixins.methods import GetMixin
-from testrail.models.mixins.methods import AddMixin
-from testrail.models.mixins.methods import UpdateMixin
-from testrail.models.mixins.methods import DeleteMixin
+from testrail.models.mixins.fields import (CreatedByMixin, CreatedOnMixin, DisplayOrderMixin, EstimateMixin,
+                                           EstimateForecastMixin, IdMixin, MilestoneIdMixin, PriorityIdMixin, RefsMixin,
+                                           SectionIdMixin, SuiteIdMixin, TemplateIdMixin, TitleMixin, TypeIdMixin,
+                                           UpdatedByMixin, UpdatedOnMixin)
+from testrail.models.mixins.methods import GetMixin, AddMixin, UpdateMixin, DeleteMixin
 
 
 class CaseModel(CreatedByMixin, CreatedOnMixin, DisplayOrderMixin, EstimateMixin, EstimateForecastMixin, IdMixin,

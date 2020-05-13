@@ -2,21 +2,9 @@ from schema import Schema, Or
 
 from testrail.models.base import PostModel
 from testrail.models.plan import PlanModel
-
-from testrail.models.mixins.fields import SuiteIdMixin
-from testrail.models.mixins.fields import NameMixin
-from testrail.models.mixins.fields import DescriptionMixin
-from testrail.models.mixins.fields import AssignedToIdMixin
-from testrail.models.mixins.fields import CaseIdsMixin
-from testrail.models.mixins.fields import ConfigIdsMixin
-from testrail.models.mixins.fields import IdMixin
-from testrail.models.mixins.fields import IncludeAllMixin
-from testrail.models.mixins.fields import PlanIdMixin
-from testrail.models.mixins.fields import RunsMixin
-
-from testrail.models.mixins.methods import AddMixin
-from testrail.models.mixins.methods import UpdateMixin
-from testrail.models.mixins.methods import DeleteMixin
+from testrail.models.mixins.fields import (SuiteIdMixin, NameMixin, DescriptionMixin, AssignedToIdMixin, CaseIdsMixin,
+                                           ConfigIdsMixin, IdMixin, IncludeAllMixin, PlanIdMixin, RunsMixin)
+from testrail.models.mixins.methods import AddMixin, UpdateMixin, DeleteMixin
 
 
 class EntryModel(SuiteIdMixin, NameMixin, DescriptionMixin, AssignedToIdMixin, CaseIdsMixin, ConfigIdsMixin, IdMixin,
@@ -51,7 +39,12 @@ class EntryModel(SuiteIdMixin, NameMixin, DescriptionMixin, AssignedToIdMixin, C
     SCHEMA = Schema({
         'id': str,
         'name': str,
-        'runs': Or(list, None),
+        'description': Or(str, None),
+        'assigned_to_id': Or(int, None),
+        'include_all': bool,
+        'case_ids': list,
+        'config_ids': list,
+        'runs': list,
         'suite_id': int
     })
 

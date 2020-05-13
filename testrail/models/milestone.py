@@ -1,24 +1,10 @@
-from schema import Schema, Optional, Or
+from schema import Schema, Or
 
 from testrail.models.base import PostModel
-
-from testrail.models.mixins.fields import CompletedOnMixin
-from testrail.models.mixins.fields import DescriptionMixin
-from testrail.models.mixins.fields import DueOnMixin
-from testrail.models.mixins.fields import IdMixin
-from testrail.models.mixins.fields import NameMixin
-from testrail.models.mixins.fields import IsCompletedMixin
-from testrail.models.mixins.fields import IsStartedMixin
-from testrail.models.mixins.fields import ParentIdMixin
-from testrail.models.mixins.fields import ProjectIdMixin
-from testrail.models.mixins.fields import StartOnMixin
-from testrail.models.mixins.fields import StartedOnMixin
-from testrail.models.mixins.fields import UrlMixin
-
-from testrail.models.mixins.methods import GetMixin
-from testrail.models.mixins.methods import AddMixin
-from testrail.models.mixins.methods import UpdateMixin
-from testrail.models.mixins.methods import DeleteMixin
+from testrail.models.mixins.fields import (CompletedOnMixin, DescriptionMixin, DueOnMixin, IdMixin, NameMixin,
+                                           IsCompletedMixin, IsStartedMixin, ParentIdMixin, ProjectIdMixin,
+                                           StartOnMixin, StartedOnMixin, UrlMixin)
+from testrail.models.mixins.methods import GetMixin, AddMixin, UpdateMixin, DeleteMixin
 
 
 class MilestoneModel(CompletedOnMixin, DescriptionMixin, DueOnMixin, IdMixin, IsCompletedMixin,  IsStartedMixin,
@@ -55,7 +41,7 @@ class MilestoneModel(CompletedOnMixin, DescriptionMixin, DueOnMixin, IdMixin, Is
         'id': int,
         'is_completed': bool,
         'is_started': bool,
-        Optional('milestones'): Or(list, None),
+        'milestones': Or(list, None),
         'name': str,
         'parent_id': Or(int, None),
         'project_id': int,

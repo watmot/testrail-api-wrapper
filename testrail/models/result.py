@@ -1,18 +1,9 @@
-from schema import Schema, Or
+from schema import Schema, Or, Regex, Optional
 
 from testrail.models.base import PostModel
-
-from testrail.models.mixins.fields import AssignedToIdMixin
-from testrail.models.mixins.fields import CommentMixin
-from testrail.models.mixins.fields import CreatedByMixin
-from testrail.models.mixins.fields import CreatedOnMixin
-from testrail.models.mixins.fields import DefectsMixin
-from testrail.models.mixins.fields import ElapsedMixin
-from testrail.models.mixins.fields import IdMixin
-from testrail.models.mixins.fields import StatusIdMixin
-from testrail.models.mixins.fields import TestIdMixin
-from testrail.models.mixins.fields import VersionMixin
-
+from testrail.models.mixins.fields import (AssignedToIdMixin, CommentMixin, CreatedByMixin, CreatedOnMixin,
+                                           DefectsMixin, ElapsedMixin, IdMixin, StatusIdMixin, TestIdMixin,
+                                           VersionMixin)
 from testrail.models.mixins.methods import AddMixin
 
 
@@ -40,17 +31,14 @@ class ResultModel(AssignedToIdMixin, CommentMixin, CreatedByMixin, CreatedOnMixi
         'comment': Or(str, None),
         'created_by': int,
         'created_on': int,
-        'custom_step_results': Or(list, None),
         'defects': Or(str, None),
         'elapsed': Or(str, None),
         'id': int,
         'status_id': int,
         'test_id': int,
         'version': Or(str, None),
-
-    },
-        ignore_extra_keys=True
-    )
+        Optional(Regex(r'^custom_')): object
+    })
 
     def add(self, test_id):
         response = self._add(test_id=test_id)

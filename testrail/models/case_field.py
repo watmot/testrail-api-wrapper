@@ -1,20 +1,14 @@
 from schema import Schema, Optional, Or
 
 from testrail.models.base import PostModel
-
-from testrail.models.mixins.fields import DescriptionMixin
-from testrail.models.mixins.fields import DisplayOrderMixin
-from testrail.models.mixins.fields import IdMixin
-from testrail.models.mixins.fields import LabelMixin
-from testrail.models.mixins.fields import NameMixin
-from testrail.models.mixins.fields import SystemNameMixin
-from testrail.models.mixins.fields import TypeIdMixin
-
+from testrail.models.mixins.fields import (CaseConfigsMixin, DescriptionMixin, DisplayOrderMixin, IdMixin,
+                                           IncludeAllMixin, IsActiveMixin, LabelMixin, NameMixin, SystemNameMixin,
+                                           TemplateIdMixin, TypeIdMixin)
 from testrail.models.mixins.methods import AddMixin
 
 
-class CaseFieldModel(DescriptionMixin, DisplayOrderMixin, IdMixin, LabelMixin, NameMixin, SystemNameMixin, TypeIdMixin,
-                     AddMixin, PostModel):
+class CaseFieldModel(CaseConfigsMixin, DescriptionMixin, DisplayOrderMixin, IdMixin, IncludeAllMixin, IsActiveMixin,
+                     LabelMixin, NameMixin, SystemNameMixin, TemplateIdMixin, TypeIdMixin, AddMixin, PostModel):
 
     ENDPOINTS = {
         'add': 'add_case_field/'
@@ -36,18 +30,13 @@ class CaseFieldModel(DescriptionMixin, DisplayOrderMixin, IdMixin, LabelMixin, N
         'configs': list,
         'description': Or(str, None),
         'display_order': int,
-        Optional('entity_id'): int,
         'id': int,
         'label': Or(str, None),
-        Optional('location_id'): int,
         'name': str,
-        Optional('is_multi'): bool,
-        Optional('is_active'): bool,
-        Optional('status_id'): int,
-        Optional('is_system'): bool,
-        Optional('include_all'):  bool,
         'system_name': str,
         'type_id': int,
+        Optional('include_all'): bool,
+        Optional('is_active'): bool,
         Optional('template_ids'): list
     })
 

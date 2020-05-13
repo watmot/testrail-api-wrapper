@@ -24,6 +24,12 @@ class BlockedCountMixin:
         return self._data.get('blocked_count')
 
 
+class CaseConfigsMixin:
+    @property
+    def case_configs(self):
+        return self._data.get('configs')
+
+
 class CaseIdMixin:
     @property
     def case_id(self):

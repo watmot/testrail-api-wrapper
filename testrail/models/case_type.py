@@ -1,10 +1,7 @@
 from schema import Schema
 
 from testrail.models.base import PostModel
-
-from testrail.models.mixins.fields import IdMixin
-from testrail.models.mixins.fields import IsDefaultMixin
-from testrail.models.mixins.fields import NameMixin
+from testrail.models.mixins.fields import IdMixin, IsDefaultMixin, NameMixin
 
 
 class CaseTypeModel(IdMixin, IsDefaultMixin, NameMixin, PostModel):

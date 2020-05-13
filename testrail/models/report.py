@@ -1,7 +1,6 @@
 from schema import Schema, Optional, Or
 
 from testrail.models.base import BaseModel
-
 from testrail.models.mixins.fields import (IdMixin, NameMixin, DescriptionMixin, NotifyUserMixin, NotifyLinkMixin,
                                            NotifyLinkRecipientsMixin, NotifyAttachmentMixin,
                                            NotifyAttachmentHTMLFormatMixin, NotifyAttachmentPDFFormatMixin,
